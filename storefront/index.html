@@ -3,102 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huaye Zhixian Technology – Optical Fiber & Cable Supplier | 华羿智纤</title>
+  <title>Huaye Zhixian Technology – Optical Fiber & Cable | 华羿智纤</title>
   <style>
-    /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --brand:     #0d4fa0;
-      --brand-dk:  #093980;
-      --accent:    #e8821a;
-      --accent-lt: #f5a94a;
-      --light-bg:  #f4f6fa;
-      --border:    #dde2ec;
-      --text:      #1a2236;
-      --sub:       #5a6580;
-      --white:     #ffffff;
-      --radius:    6px;
+      --brand: #0d4fa0; --brand-dk: #093980; --accent: #e8821a; --accent-lt: #f5a94a;
+      --light-bg: #f4f6fa; --border: #dde2ec; --text: #1a2236; --sub: #5a6580;
+      --white: #ffffff; --radius: 6px;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
 
-    /* ─── Top-bar ─── */
+    /* Top-bar */
     .topbar {
-      background: var(--brand-dk);
-      color: rgba(255,255,255,.85);
-      font-size: 12px;
-      padding: 5px 20px;
-      display: flex; justify-content: space-between; align-items: center;
+      background: var(--brand-dk); color: rgba(255,255,255,.85); font-size: 12px;
+      padding: 5px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px;
     }
-    .topbar a { color: rgba(255,255,255,.85); margin-left: 12px; }
+    .topbar-right { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .topbar a { color: rgba(255,255,255,.85); margin-left: 10px; }
     .topbar a:hover { color: #fff; }
 
-    /* ─── Header ─── */
+    /* Language switcher */
+    .lang-switcher { display: flex; gap: 3px; margin-left: 14px; }
+    .lang-btn {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.8); padding: 2px 9px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; cursor: pointer; transition: all .15s; font-family: inherit;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,.2); color: #fff; }
+    .lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* Header */
     header {
-      background: var(--white);
-      border-bottom: 3px solid var(--brand);
-      padding: 14px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      background: var(--white); border-bottom: 3px solid var(--brand);
+      padding: 14px 20px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.08);
     }
     .logo-block { display: flex; align-items: center; gap: 14px; }
     .logo-icon {
-      width: 52px; height: 52px;
-      background: var(--brand);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px; background: var(--brand); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .logo-icon svg { width: 32px; height: 32px; }
     .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--brand); letter-spacing: .5px; }
     .logo-text p  { font-size: 11px; color: var(--sub); margin-top: 1px; }
-
-    nav { display: flex; gap: 0; }
+    nav { display: flex; }
     nav a {
-      padding: 8px 16px;
-      font-size: 13px; font-weight: 600;
-      color: var(--text);
-      border-bottom: 3px solid transparent;
-      transition: color .2s, border-color .2s;
+      padding: 8px 15px; font-size: 13px; font-weight: 600; color: var(--text);
+      border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap;
     }
     nav a:hover, nav a.active { color: var(--brand); border-bottom-color: var(--accent); }
-
-    .header-cta {
-      display: flex; gap: 8px;
-    }
-    .btn {
-      padding: 8px 18px; border-radius: var(--radius);
-      font-size: 13px; font-weight: 600; cursor: pointer; border: none;
-      transition: opacity .2s;
-    }
+    .header-cta { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn { padding: 8px 18px; border-radius: var(--radius); font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: opacity .2s; }
     .btn:hover { opacity: .88; }
     .btn-primary { background: var(--accent); color: var(--white); }
     .btn-outline  { background: transparent; border: 2px solid var(--brand); color: var(--brand); }
 
-    /* ─── Hero Banner ─── */
+    /* Hero */
     .hero {
       background: linear-gradient(120deg, #0d4fa0 0%, #1565c0 50%, #0d4fa0 100%);
-      color: var(--white);
-      padding: 60px 40px;
+      color: var(--white); padding: 60px 40px;
       display: flex; align-items: center; justify-content: space-between;
-      gap: 40px; min-height: 340px;
-      position: relative; overflow: hidden;
+      gap: 40px; min-height: 340px; position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
     }
     .hero-content { position: relative; max-width: 560px; }
     .hero-tag {
-      display: inline-block;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 20px;
-      padding: 4px 14px; font-size: 12px; margin-bottom: 18px;
-      letter-spacing: .5px;
+      display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 20px; padding: 4px 14px; font-size: 12px; margin-bottom: 18px; letter-spacing: .5px;
     }
     .hero h2 { font-size: 38px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
     .hero h2 span { color: var(--accent-lt); }
@@ -106,203 +82,128 @@
     .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
     .hero-btns .btn-primary { background: var(--accent); font-size: 14px; padding: 11px 24px; }
     .hero-btns .btn-ghost {
-      padding: 11px 24px; border-radius: var(--radius); font-size: 14px;
-      font-weight: 600; background: rgba(255,255,255,.1);
-      border: 1.5px solid rgba(255,255,255,.5); color: var(--white); cursor: pointer;
-      transition: background .2s;
+      padding: 11px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 600;
+      background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.5); color: var(--white);
+      cursor: pointer; transition: background .2s;
     }
     .hero-btns .btn-ghost:hover { background: rgba(255,255,255,.2); }
-
     .hero-visual { position: relative; flex-shrink: 0; }
     .hero-stats {
       display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-      background: rgba(255,255,255,.1); border-radius: 12px;
-      padding: 20px; backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,.2);
-      width: 280px;
+      background: rgba(255,255,255,.1); border-radius: 12px; padding: 20px;
+      backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.2); width: 280px;
     }
     .stat-item { text-align: center; }
     .stat-item .num { font-size: 30px; font-weight: 800; color: var(--accent-lt); }
     .stat-item .lbl { font-size: 11px; opacity: .85; margin-top: 2px; }
 
-    /* ─── Trust Band ─── */
+    /* Trust band */
     .trust-band {
-      background: var(--brand);
-      color: var(--white);
-      padding: 14px 40px;
-      display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
+      background: var(--brand); color: var(--white); padding: 14px 40px;
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
     }
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
     .trust-item svg { width: 18px; height: 18px; opacity: .9; }
 
-    /* ─── Section Common ─── */
+    /* Sections */
     section { padding: 56px 40px; }
     .section-hd { text-align: center; margin-bottom: 40px; }
     .section-hd h3 { font-size: 26px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
     .section-hd p  { font-size: 14px; color: var(--sub); max-width: 540px; margin: 0 auto; }
     .divider { width: 50px; height: 4px; background: var(--accent); border-radius: 2px; margin: 10px auto; }
 
-    /* ─── Products ─── */
+    /* Products */
     .products { background: var(--light-bg); }
-    .prod-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
     .prod-card {
-      background: var(--white);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-      cursor: pointer;
+      background: var(--white); border-radius: 10px; border: 1px solid var(--border);
+      overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer;
     }
     .prod-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(13,79,160,.12); }
-    .prod-img {
-      height: 160px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 64px;
-    }
+    .prod-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
     .prod-body { padding: 14px 16px 18px; }
     .prod-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
     .prod-body p  { font-size: 12px; color: var(--sub); margin-bottom: 10px; line-height: 1.5; }
-    .prod-tag {
-      display: inline-block;
-      background: #e8f0fe; color: var(--brand);
-      border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600;
-    }
+    .prod-tag { display: inline-block; background: #e8f0fe; color: var(--brand); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600; }
     .prod-cta {
-      display: block; margin-top: 12px;
-      text-align: center; padding: 8px;
-      background: var(--brand); color: var(--white);
-      border-radius: var(--radius); font-size: 12px; font-weight: 600;
-      transition: background .2s;
+      display: block; margin-top: 12px; text-align: center; padding: 8px;
+      background: var(--brand); color: var(--white); border-radius: var(--radius);
+      font-size: 12px; font-weight: 600; transition: background .2s;
     }
     .prod-cta:hover { background: var(--brand-dk); }
 
-    /* ─── Advantages ─── */
-    .adv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
+    /* Advantages */
+    .adv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
     .adv-card {
-      border: 1px solid var(--border);
-      border-radius: 10px; padding: 28px 24px;
-      transition: box-shadow .2s;
-      position: relative; overflow: hidden;
+      border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px;
+      transition: box-shadow .2s; position: relative; overflow: hidden;
     }
-    .adv-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: var(--brand);
-    }
+    .adv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--brand); }
     .adv-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); }
     .adv-icon { font-size: 36px; margin-bottom: 14px; }
     .adv-card h4 { font-size: 15px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
     .adv-card p  { font-size: 13px; color: var(--sub); line-height: 1.6; }
 
-    /* ─── Markets ─── */
+    /* Markets */
     .markets { background: var(--light-bg); }
-    .market-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-    }
+    .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
     .market-card {
-      background: var(--white);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      padding: 24px 20px; text-align: center;
-      transition: transform .2s, box-shadow .2s;
+      background: var(--white); border-radius: 10px; border: 1px solid var(--border);
+      padding: 24px 20px; text-align: center; transition: transform .2s, box-shadow .2s;
     }
     .market-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
     .mkt-flag { font-size: 44px; margin-bottom: 10px; }
     .mkt-name { font-size: 16px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
     .mkt-sub  { font-size: 12px; color: var(--sub); margin-bottom: 10px; }
-    .mkt-badge {
-      display: inline-block;
-      padding: 3px 10px; border-radius: 12px;
-      font-size: 11px; font-weight: 700;
-    }
+    .mkt-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
     .hot  { background: #fff0e6; color: #c0580d; }
     .open { background: #e8f5e9; color: #2e7d32; }
 
-    /* ─── Certifications ─── */
-    .cert-row {
-      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
-    }
+    /* Certs */
+    .cert-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
     .cert-pill {
-      border: 1px solid var(--border);
-      border-radius: 30px; padding: 10px 24px;
-      display: flex; align-items: center; gap: 10px;
-      font-size: 13px; font-weight: 600; background: var(--white);
+      border: 1px solid var(--border); border-radius: 30px; padding: 10px 24px;
+      display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; background: var(--white);
     }
     .cert-pill .icon { font-size: 22px; }
 
-    /* ─── Process ─── */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0;
-      counter-reset: step;
-    }
-    .step {
-      text-align: center; padding: 24px 16px;
-      position: relative;
-    }
-    .step:not(:last-child)::after {
-      content: '→';
-      position: absolute; right: -6px; top: 28px;
-      font-size: 20px; color: var(--accent);
-    }
-    .step-num {
-      width: 42px; height: 42px;
-      background: var(--brand); color: var(--white);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 16px; margin: 0 auto 12px;
-    }
+    /* Process */
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0; }
+    .step { text-align: center; padding: 24px 16px; position: relative; }
+    .step:not(:last-child)::after { content: '→'; position: absolute; right: -6px; top: 28px; font-size: 20px; color: var(--accent); }
+    .step-num { width: 42px; height: 42px; background: var(--brand); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; margin: 0 auto 12px; }
     .step h4 { font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 6px; }
     .step p  { font-size: 12px; color: var(--sub); }
 
-    /* ─── Contact ─── */
+    /* Contact */
     .contact { background: var(--brand); color: var(--white); }
     .contact .section-hd h3 { color: var(--white); }
     .contact .section-hd p  { color: rgba(255,255,255,.8); }
     .contact .divider { background: var(--accent-lt); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-      max-width: 900px; margin: 0 auto;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
     .contact-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent-lt); }
     .contact-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; font-size: 14px; }
     .contact-row .ci { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
     .contact-form { display: flex; flex-direction: column; gap: 12px; }
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
+    .contact-form input, .contact-form textarea, .contact-form select {
       width: 100%; padding: 10px 14px; border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.25);
-      background: rgba(255,255,255,.1); color: var(--white);
-      font-size: 13px; font-family: inherit;
+      border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1);
+      color: var(--white); font-size: 13px; font-family: inherit;
     }
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: rgba(255,255,255,.5); }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,.5); }
+    .contact-form select option { background: var(--brand-dk); color: #fff; }
     .contact-form textarea { resize: vertical; min-height: 90px; }
     .contact-form .btn-primary { background: var(--accent); border: none; font-size: 14px; padding: 11px; }
 
-    /* ─── Footer ─── */
+    /* Footer */
     footer {
-      background: #0a1628; color: rgba(255,255,255,.6);
-      padding: 30px 40px; font-size: 12px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 14px;
+      background: #0a1628; color: rgba(255,255,255,.6); padding: 30px 40px; font-size: 12px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
     }
     footer a { color: rgba(255,255,255,.7); margin-left: 14px; }
     footer a:hover { color: #fff; }
     .footer-logo { color: var(--white); font-weight: 700; font-size: 14px; }
 
-    /* ─── Responsive ─── */
     @media (max-width: 768px) {
       .hero { flex-direction: column; padding: 40px 20px; }
       .hero h2 { font-size: 26px; }
@@ -313,6 +214,7 @@
       nav { order: 3; width: 100%; overflow-x: auto; }
       .contact-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: flex-start; }
+      .topbar { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
   </style>
 </head>
@@ -320,11 +222,17 @@
 
 <!-- Top Bar -->
 <div class="topbar">
-  <span>🌐 Supplying Southeast Asia · Philippines · Indonesia · Vietnam · Thailand</span>
-  <div>
-    <a href="#contact">Contact Us</a>
-    <a href="#contact">Get a Quote</a>
+  <span data-i18n="topbar_left">🌐 Supplying Southeast Asia · Philippines · Indonesia · Vietnam · Thailand</span>
+  <div class="topbar-right">
+    <a href="#contact" data-i18n="topbar_contact">Contact Us</a>
+    <a href="#contact" data-i18n="topbar_quote">Get a Quote</a>
     <a href="mailto:sales@huayezhixian.com">sales@huayezhixian.com</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
+      <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
+    </div>
   </div>
 </div>
 
@@ -332,7 +240,6 @@
 <header>
   <div class="logo-block">
     <div class="logo-icon">
-      <!-- Fiber optic icon -->
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 16 Q 10 8 16 16 Q 22 24 28 16" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <path d="M4 12 Q 10 4 16 12 Q 22 20 28 12" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -343,34 +250,33 @@
     </div>
     <div class="logo-text">
       <h1>华羿智纤  Huaye Zhixian</h1>
-      <p>Optical Fiber &amp; Cable Export Specialist · Est. 2020 · Guangdong, China</p>
+      <p data-i18n="logo_tagline">Optical Fiber &amp; Cable Export Specialist · Est. 2020 · Guangdong, China</p>
     </div>
   </div>
 
   <nav>
-    <a href="#products" class="active">Products</a>
-    <a href="#advantages">About Us</a>
-    <a href="#markets">Markets</a>
-    <a href="#process">How to Order</a>
-    <a href="#contact">Contact</a>
+    <a href="#products" data-i18n="nav_products">Products</a>
+    <a href="#advantages" data-i18n="nav_about">About Us</a>
+    <a href="#markets" data-i18n="nav_markets">Markets</a>
+    <a href="#process" data-i18n="nav_order">How to Order</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
   </nav>
 
   <div class="header-cta">
-    <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inquiry</button>
-    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+    <button class="btn btn-outline" data-i18n="btn_inquiry" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inquiry</button>
+    <button class="btn btn-primary" data-i18n="btn_quote" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
   </div>
 </header>
 
 <!-- Hero -->
 <div class="hero">
   <div class="hero-content">
-    <span class="hero-tag">🏭 Factory-Direct Pricing · Southeast Asia Specialist</span>
-    <h2>China's Premium<br/><span>Optical Fiber &amp; Cable</span><br/>for SEA Markets</h2>
-    <p>Bare optical fiber &amp; finished optical cable — direct from China's upstream production base.
-       Competitive FOB pricing, fast lead times, and compliant export to Philippines, Indonesia, Vietnam &amp; Thailand.</p>
+    <span class="hero-tag" data-i18n="hero_tag">🏭 Factory-Direct Pricing · Southeast Asia Specialist</span>
+    <h2 data-i18n="hero_h2">China's Premium<br/><span>Optical Fiber &amp; Cable</span><br/>for SEA Markets</h2>
+    <p data-i18n="hero_p">Bare optical fiber &amp; finished optical cable — direct from China's upstream production base. Competitive FOB pricing, fast lead times, and compliant export to Philippines, Indonesia, Vietnam &amp; Thailand.</p>
     <div class="hero-btns">
-      <button class="btn-primary btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📩 Request a Quote</button>
-      <button class="btn-ghost" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products →</button>
+      <button class="btn-primary btn" data-i18n="btn_rfq" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📩 Request a Quote</button>
+      <button class="btn-ghost" data-i18n="btn_view" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products →</button>
     </div>
   </div>
 
@@ -378,19 +284,19 @@
     <div class="hero-stats">
       <div class="stat-item">
         <div class="num">5+</div>
-        <div class="lbl">Years in<br/>Fiber Industry</div>
+        <div class="lbl" data-i18n="stat1_lbl">Years in<br/>Fiber Industry</div>
       </div>
       <div class="stat-item">
         <div class="num">10M+</div>
-        <div class="lbl">Fiber km<br/>Delivered</div>
+        <div class="lbl" data-i18n="stat2_lbl">Fiber km<br/>Delivered</div>
       </div>
       <div class="stat-item">
         <div class="num">4</div>
-        <div class="lbl">Core SEA<br/>Markets</div>
+        <div class="lbl" data-i18n="stat3_lbl">Core SEA<br/>Markets</div>
       </div>
       <div class="stat-item">
         <div class="num">48h</div>
-        <div class="lbl">Sample<br/>Lead Time</div>
+        <div class="lbl" data-i18n="stat4_lbl">Sample<br/>Lead Time</div>
       </div>
     </div>
   </div>
@@ -400,328 +306,186 @@
 <div class="trust-band">
   <div class="trust-item">
     <svg viewBox="0 0 24 24" fill="white"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-    Verified Supplier
+    <span data-i18n="trust1">Verified Supplier</span>
   </div>
   <div class="trust-item">
     <svg viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-    ITU-T G.652D / G.657A Compliant
+    <span data-i18n="trust2">ITU-T G.652D / G.657A Compliant</span>
   </div>
   <div class="trust-item">
     <svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
-    T/T &amp; L/C Accepted
+    <span data-i18n="trust3">T/T &amp; L/C Accepted</span>
   </div>
   <div class="trust-item">
     <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-    FOB / CIF Available
+    <span data-i18n="trust4">FOB / CIF Available</span>
   </div>
   <div class="trust-item">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M21 6.5l-4-4-1.5 1.5-4-4L2 9.5l1.5 1.5-1.5 1.5 4 4 1.5-1.5 4 4 8.5-8.5-1.5-1.5 1.5-1.5zM8 15.5l-2-2 8.5-8.5 2 2L8 15.5z"/></svg>
-    FCL &amp; LCL Shipping
+    <svg viewBox="0 0 24 24" fill="white"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+    <span data-i18n="trust5">FCL &amp; LCL Shipping</span>
   </div>
 </div>
 
 <!-- Products -->
 <section class="products" id="products">
   <div class="section-hd">
-    <h3>Main Products</h3>
+    <h3 data-i18n="sec_prod_title">Main Products</h3>
     <div class="divider"></div>
-    <p>Full range of optical fiber and cable solutions — bare fiber for cable factories, and finished cables for ISPs &amp; EPC contractors.</p>
+    <p data-i18n="sec_prod_desc">Full range of optical fiber and cable solutions — bare fiber for cable factories, and finished cables for ISPs &amp; EPC contractors.</p>
   </div>
-
   <div class="prod-grid">
-
     <div class="prod-card">
       <div class="prod-img" style="background:#e8f0fe;">🔵</div>
       <div class="prod-body">
-        <h4>Bare Optical Fiber — G.652D</h4>
-        <p>Single-mode OS2 bare fiber. Low attenuation (≤0.18 dB/km @1550 nm). Ideal for cable factories &amp; secondary processing plants.</p>
-        <span class="prod-tag">fkm / kfkm pricing</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <h4 data-i18n="prod1_name">Bare Optical Fiber — G.652D</h4>
+        <p data-i18n="prod1_desc">Single-mode OS2 bare fiber. Low attenuation (≤0.18 dB/km @1550 nm). Ideal for cable factories &amp; secondary processing plants.</p>
+        <span class="prod-tag">fkm / kfkm</span>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-img" style="background:#fff3e0;">🟠</div>
       <div class="prod-body">
-        <h4>Bare Optical Fiber — G.657A1/A2</h4>
-        <p>Bend-insensitive fiber for FTTH drop lines. Min. bend radius 10 mm (A2). Popular in dense urban deployments.</p>
+        <h4 data-i18n="prod2_name">Bare Optical Fiber — G.657A1/A2</h4>
+        <p data-i18n="prod2_desc">Bend-insensitive fiber for FTTH drop lines. Min. bend radius 10 mm (A2). Popular in dense urban deployments.</p>
         <span class="prod-tag">FTTH ready</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-img" style="background:#e8f5e9;">🟢</div>
       <div class="prod-body">
-        <h4>Outdoor Optical Cable — GYTA</h4>
-        <p>Loose-tube, armored, direct-burial / duct. 4–288 fibers. Standard outdoor backbone cable for ISP &amp; EPC projects.</p>
+        <h4 data-i18n="prod3_name">Outdoor Optical Cable — GYTA</h4>
+        <p data-i18n="prod3_desc">Loose-tube, armored, direct-burial / duct. 4–288 fibers. Standard outdoor backbone cable for ISP &amp; EPC projects.</p>
         <span class="prod-tag">GYTA / GYTS</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-img" style="background:#fce4ec;">🔴</div>
       <div class="prod-body">
-        <h4>FTTH Drop Cable</h4>
-        <p>G.657A1 single-fiber, 2-fiber, or spider-web designs. Self-supporting &amp; indoor/outdoor variants. Fast-connect ready.</p>
-        <span class="prod-tag">Flat / Round drop</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <h4 data-i18n="prod4_name">FTTH Drop Cable</h4>
+        <p data-i18n="prod4_desc">G.657A1 single-fiber, 2-fiber, or spider-web designs. Self-supporting &amp; indoor/outdoor variants. Fast-connect ready.</p>
+        <span class="prod-tag">Flat / Round</span>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-img" style="background:#f3e5f5;">🟣</div>
       <div class="prod-body">
-        <h4>Mini All-Dielectric Cable — GYXTW</h4>
-        <p>Compact, lightweight, central loose-tube design. 6–24 fibers. Popular for aerial and duct MDU deployments.</p>
+        <h4 data-i18n="prod5_name">Mini All-Dielectric Cable — GYXTW</h4>
+        <p data-i18n="prod5_desc">Compact, lightweight, central loose-tube design. 6–24 fibers. Popular for aerial and duct MDU deployments.</p>
         <span class="prod-tag">GYXTW / GYFTY</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
     <div class="prod-card">
       <div class="prod-img" style="background:#e0f7fa;">🔷</div>
       <div class="prod-body">
-        <h4>Multi-mode OM3 / OM4 Fiber</h4>
-        <p>50/125 µm laser-optimized fiber for data center interconnects. High bandwidth, low insertion loss.</p>
+        <h4 data-i18n="prod6_name">Multi-mode OM3 / OM4 Fiber</h4>
+        <p data-i18n="prod6_desc">50/125 µm laser-optimized fiber for data center interconnects. High bandwidth, low insertion loss.</p>
         <span class="prod-tag">OM3 / OM4</span>
-        <a href="#contact" class="prod-cta">Inquire Now</a>
+        <a href="#contact" class="prod-cta" data-i18n="inquire_now">Inquire Now</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- Advantages -->
 <section id="advantages">
   <div class="section-hd">
-    <h3>Why Choose 华羿智纤?</h3>
+    <h3 data-i18n="sec_adv_title">Why Choose 华羿智纤?</h3>
     <div class="divider"></div>
-    <p>We bring upstream China manufacturing cost advantages directly to Southeast Asian buyers — no middlemen, faster quotes, better margins.</p>
+    <p data-i18n="sec_adv_desc">We bring upstream China manufacturing cost advantages directly to Southeast Asian buyers — no middlemen, faster quotes, better margins.</p>
   </div>
-
   <div class="adv-grid">
-
-    <div class="adv-card">
-      <div class="adv-icon">🏭</div>
-      <h4>Direct Upstream Access</h4>
-      <p>Stable supply relationships with major Chinese fiber preform and cable manufacturers. We pass the cost advantage straight to you — no extra markup layers.</p>
-    </div>
-
-    <div class="adv-card">
-      <div class="adv-icon">💰</div>
-      <h4>Competitive FOB Pricing</h4>
-      <p>Our EXW cost base beats most regional resellers. We offer transparent FOB quotations from Shenzhen, Guangzhou Nansha, or Ningbo — pick your preferred load port.</p>
-    </div>
-
-    <div class="adv-card">
-      <div class="adv-icon">⚡</div>
-      <h4>Fast Delivery</h4>
-      <p>Bare fiber: ex-stock or 5–10 day lead time. Finished cable: 15–25 days. Rush orders accommodated. LCL trial shipments welcome for first orders.</p>
-    </div>
-
-    <div class="adv-card">
-      <div class="adv-icon">✅</div>
-      <h4>Compliance-Ready Products</h4>
-      <p>Bare fiber carries no mandatory product certification in most SEA markets — the fastest path to import. Finished cable certifications (SDPPI for Indonesia, etc.) available on request.</p>
-    </div>
-
-    <div class="adv-card">
-      <div class="adv-icon">🔒</div>
-      <h4>Secure Payment Terms</h4>
-      <p>We accept T/T advance, 30% deposit + balance on B/L copy, and Sight L/C. Transparent terms protect both sides — no surprises.</p>
-    </div>
-
-    <div class="adv-card">
-      <div class="adv-icon">🤝</div>
-      <h4>Dedicated SEA Support</h4>
-      <p>English &amp; Chinese speaking export team familiar with Philippines, Indonesia, Vietnam and Thai import procedures. We handle customs docs, CoO, and HS code guidance.</p>
-    </div>
-
+    <div class="adv-card"><div class="adv-icon">🏭</div><h4 data-i18n="adv1_title">Direct Upstream Access</h4><p data-i18n="adv1_desc">Stable supply relationships with major Chinese fiber preform and cable manufacturers. We pass the cost advantage straight to you — no extra markup layers.</p></div>
+    <div class="adv-card"><div class="adv-icon">💰</div><h4 data-i18n="adv2_title">Competitive FOB Pricing</h4><p data-i18n="adv2_desc">Our EXW cost base beats most regional resellers. We offer transparent FOB quotations from Shenzhen, Guangzhou Nansha, or Ningbo — pick your preferred load port.</p></div>
+    <div class="adv-card"><div class="adv-icon">⚡</div><h4 data-i18n="adv3_title">Fast Delivery</h4><p data-i18n="adv3_desc">Bare fiber: ex-stock or 5–10 day lead time. Finished cable: 15–25 days. Rush orders accommodated. LCL trial shipments welcome for first orders.</p></div>
+    <div class="adv-card"><div class="adv-icon">✅</div><h4 data-i18n="adv4_title">Compliance-Ready Products</h4><p data-i18n="adv4_desc">Bare fiber carries no mandatory product certification in most SEA markets — the fastest path to import. Finished cable certifications (SDPPI for Indonesia, etc.) available on request.</p></div>
+    <div class="adv-card"><div class="adv-icon">🔒</div><h4 data-i18n="adv5_title">Secure Payment Terms</h4><p data-i18n="adv5_desc">We accept T/T advance, 30% deposit + balance on B/L copy, and Sight L/C. Transparent terms protect both sides — no surprises.</p></div>
+    <div class="adv-card"><div class="adv-icon">🤝</div><h4 data-i18n="adv6_title">Dedicated SEA Support</h4><p data-i18n="adv6_desc">English &amp; Chinese speaking export team familiar with Philippines, Indonesia, Vietnam and Thai import procedures. We handle customs docs, CoO, and HS code guidance.</p></div>
   </div>
 </section>
 
 <!-- Markets -->
 <section class="markets" id="markets">
   <div class="section-hd">
-    <h3>Our Core Export Markets</h3>
+    <h3 data-i18n="sec_mkt_title">Our Core Export Markets</h3>
     <div class="divider"></div>
-    <p>Southeast Asia is in the middle of a FTTH construction boom — $15B+ committed 2025–2028. We ship to private ISPs, cable factories, and EPC contractors.</p>
+    <p data-i18n="sec_mkt_desc">Southeast Asia is in the middle of a FTTH construction boom — $15B+ committed 2025–2028. We ship to private ISPs, cable factories, and EPC contractors.</p>
   </div>
-
   <div class="market-grid">
-
-    <div class="market-card">
-      <div class="mkt-flag">🇵🇭</div>
-      <div class="mkt-name">Philippines</div>
-      <div class="mkt-sub">NFB backbone + PLDT &amp; Converge expansion. Open import market, zero AD duties on Chinese fiber.</div>
-      <span class="mkt-badge hot">🔥 Priority #1</span>
-    </div>
-
-    <div class="market-card">
-      <div class="mkt-flag">🇮🇩</div>
-      <div class="mkt-name">Indonesia</div>
-      <div class="mkt-sub">FTTH &amp; FWA high growth. Private ISP channel open; no mandatory TKDN for private buyers.</div>
-      <span class="mkt-badge hot">🔥 Priority #2</span>
-    </div>
-
-    <div class="market-card">
-      <div class="mkt-flag">🇻🇳</div>
-      <div class="mkt-name">Vietnam</div>
-      <div class="mkt-sub">National backbone rollout at full speed. No anti-dumping on Chinese fiber/cable. Direct export viable.</div>
-      <span class="mkt-badge open">✅ Open Market</span>
-    </div>
-
-    <div class="market-card">
-      <div class="mkt-flag">🇹🇭</div>
-      <div class="mkt-name">Thailand</div>
-      <div class="mkt-sub">Ongoing fiber infrastructure upgrades. CAT Telecom and private ISPs actively sourcing.</div>
-      <span class="mkt-badge open">✅ Open Market</span>
-    </div>
-
-    <div class="market-card">
-      <div class="mkt-flag">🇲🇾</div>
-      <div class="mkt-name">Malaysia</div>
-      <div class="mkt-sub">Jalinan Digital Negara (JENDELA) broadband plan driving steady cable demand.</div>
-      <span class="mkt-badge open">✅ Secondary</span>
-    </div>
-
-    <div class="market-card">
-      <div class="mkt-flag">🇧🇳</div>
-      <div class="mkt-name">Brunei</div>
-      <div class="mkt-sub">Small but high-value market with ongoing fiber upgrade projects for government &amp; enterprise.</div>
-      <span class="mkt-badge open">✅ Secondary</span>
-    </div>
-
+    <div class="market-card"><div class="mkt-flag">🇵🇭</div><div class="mkt-name">Philippines</div><div class="mkt-sub" data-i18n="mkt1_sub">NFB backbone + PLDT &amp; Converge expansion. Open import market, zero AD duties on Chinese fiber.</div><span class="mkt-badge hot" data-i18n="mkt1_badge">🔥 Priority #1</span></div>
+    <div class="market-card"><div class="mkt-flag">🇮🇩</div><div class="mkt-name">Indonesia</div><div class="mkt-sub" data-i18n="mkt2_sub">FTTH &amp; FWA high growth. Private ISP channel open; no mandatory TKDN for private buyers.</div><span class="mkt-badge hot" data-i18n="mkt2_badge">🔥 Priority #2</span></div>
+    <div class="market-card"><div class="mkt-flag">🇻🇳</div><div class="mkt-name">Vietnam</div><div class="mkt-sub" data-i18n="mkt3_sub">National backbone rollout at full speed. No anti-dumping on Chinese fiber/cable. Direct export viable.</div><span class="mkt-badge open" data-i18n="mkt3_badge">✅ Open Market</span></div>
+    <div class="market-card"><div class="mkt-flag">🇹🇭</div><div class="mkt-name">Thailand</div><div class="mkt-sub" data-i18n="mkt4_sub">Ongoing fiber infrastructure upgrades. CAT Telecom and private ISPs actively sourcing.</div><span class="mkt-badge open" data-i18n="mkt4_badge">✅ Open Market</span></div>
+    <div class="market-card"><div class="mkt-flag">🇲🇾</div><div class="mkt-name">Malaysia</div><div class="mkt-sub" data-i18n="mkt5_sub">Jalinan Digital Negara (JENDELA) broadband plan driving steady cable demand.</div><span class="mkt-badge open" data-i18n="mkt5_badge">✅ Secondary</span></div>
+    <div class="market-card"><div class="mkt-flag">🇧🇳</div><div class="mkt-name">Brunei</div><div class="mkt-sub" data-i18n="mkt6_sub">Small but high-value market with ongoing fiber upgrade projects for government &amp; enterprise.</div><span class="mkt-badge open" data-i18n="mkt6_badge">✅ Secondary</span></div>
   </div>
 </section>
 
 <!-- Certifications -->
 <section id="certs">
   <div class="section-hd">
-    <h3>Standards &amp; Quality Assurance</h3>
+    <h3 data-i18n="sec_cert_title">Standards &amp; Quality Assurance</h3>
     <div class="divider"></div>
-    <p>All products are manufactured and tested against international telecom standards. Factory inspection reports provided with every shipment.</p>
+    <p data-i18n="sec_cert_desc">All products are manufactured and tested against international telecom standards. Factory inspection reports provided with every shipment.</p>
   </div>
-
   <div class="cert-row">
     <div class="cert-pill"><span class="icon">📋</span> ITU-T G.652D</div>
     <div class="cert-pill"><span class="icon">📋</span> ITU-T G.657A1 / A2</div>
     <div class="cert-pill"><span class="icon">📋</span> IEC 60793 / 60794</div>
     <div class="cert-pill"><span class="icon">📋</span> YD/T 标准</div>
     <div class="cert-pill"><span class="icon">🏆</span> ISO 9001:2015</div>
-    <div class="cert-pill"><span class="icon">✅</span> Factory QC Report w/ every order</div>
-    <div class="cert-pill"><span class="icon">📦</span> CoO &amp; Export Documentation</div>
+    <div class="cert-pill"><span class="icon">✅</span><span data-i18n="cert7">Factory QC Report w/ every order</span></div>
+    <div class="cert-pill"><span class="icon">📦</span><span data-i18n="cert8">CoO &amp; Export Documentation</span></div>
   </div>
 </section>
 
-<!-- Order Process -->
-<section id="process" style="background: var(--light-bg);">
+<!-- Process -->
+<section id="process" style="background:var(--light-bg);">
   <div class="section-hd">
-    <h3>How to Order — 4 Simple Steps</h3>
+    <h3 data-i18n="sec_proc_title">How to Order — 4 Simple Steps</h3>
     <div class="divider"></div>
-    <p>From inquiry to shipment — our streamlined process gets your first order out in weeks, not months.</p>
+    <p data-i18n="sec_proc_desc">From inquiry to shipment — our streamlined process gets your first order out in weeks, not months.</p>
   </div>
-
   <div class="process-steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h4>Send Inquiry</h4>
-      <p>Tell us product spec, quantity, destination port &amp; preferred Incoterms.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h4>Receive Quote</h4>
-      <p>We reply within 24 h with itemized FOB / CIF price, lead time &amp; spec sheet.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h4>Confirm &amp; Pay</h4>
-      <p>Sign PI, pay deposit (T/T 30% or sight L/C). Production starts immediately.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <h4>Ship &amp; Deliver</h4>
-      <p>We handle booking, customs, B/L &amp; full export docs. You receive goods on time.</p>
-    </div>
+    <div class="step"><div class="step-num">1</div><h4 data-i18n="step1_title">Send Inquiry</h4><p data-i18n="step1_desc">Tell us product spec, quantity, destination port &amp; preferred Incoterms.</p></div>
+    <div class="step"><div class="step-num">2</div><h4 data-i18n="step2_title">Receive Quote</h4><p data-i18n="step2_desc">We reply within 24 h with itemized FOB / CIF price, lead time &amp; spec sheet.</p></div>
+    <div class="step"><div class="step-num">3</div><h4 data-i18n="step3_title">Confirm &amp; Pay</h4><p data-i18n="step3_desc">Sign PI, pay deposit (T/T 30% or sight L/C). Production starts immediately.</p></div>
+    <div class="step"><div class="step-num">4</div><h4 data-i18n="step4_title">Ship &amp; Deliver</h4><p data-i18n="step4_desc">We handle booking, customs, B/L &amp; full export docs. You receive goods on time.</p></div>
   </div>
 </section>
 
 <!-- Contact -->
 <section class="contact" id="contact">
   <div class="section-hd">
-    <h3>Get in Touch</h3>
+    <h3 data-i18n="sec_contact_title">Get in Touch</h3>
     <div class="divider"></div>
-    <p>Ready to source? Send us your specs and we'll reply within 24 hours with a competitive quote.</p>
+    <p data-i18n="sec_contact_desc">Ready to source? Send us your specs and we'll reply within 24 hours with a competitive quote.</p>
   </div>
-
   <div class="contact-grid">
-
     <div class="contact-info">
-      <h4>Contact Details</h4>
-
-      <div class="contact-row">
-        <span class="ci">🏢</span>
-        <div>
-          <strong>华羿智纤科技有限公司</strong><br/>
-          Huaye Zhixian Technology Co., Ltd.<br/>
-          Guangdong, China
-        </div>
-      </div>
-
-      <div class="contact-row">
-        <span class="ci">📧</span>
-        <div>sales@huayezhixian.com<br/><small style="opacity:.7">Export inquiries &amp; RFQ</small></div>
-      </div>
-
-      <div class="contact-row">
-        <span class="ci">💬</span>
-        <div>WhatsApp / WeChat available<br/><small style="opacity:.7">Ask for rep contact on first inquiry</small></div>
-      </div>
-
-      <div class="contact-row">
-        <span class="ci">🕐</span>
-        <div>Mon–Fri  09:00–18:00 CST (UTC+8)</div>
-      </div>
-
-      <div class="contact-row">
-        <span class="ci">🚢</span>
-        <div>Main Load Ports:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo</div>
-      </div>
+      <h4 data-i18n="contact_details">Contact Details</h4>
+      <div class="contact-row"><span class="ci">🏢</span><div data-i18n="contact_addr"><strong>华羿智纤科技有限公司</strong><br/>Huaye Zhixian Technology Co., Ltd.<br/>Guangdong, China</div></div>
+      <div class="contact-row"><span class="ci">📧</span><div>sales@huayezhixian.com<br/><small style="opacity:.7" data-i18n="contact_email_sub">Export inquiries &amp; RFQ</small></div></div>
+      <div class="contact-row"><span class="ci">💬</span><div><span data-i18n="contact_chat">WhatsApp / WeChat available</span><br/><small style="opacity:.7" data-i18n="contact_chat_sub">Ask for rep contact on first inquiry</small></div></div>
+      <div class="contact-row"><span class="ci">🕐</span><div data-i18n="contact_hours">Mon–Fri  09:00–18:00 CST (UTC+8)</div></div>
+      <div class="contact-row"><span class="ci">🚢</span><div data-i18n="contact_ports">Main Load Ports:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo</div></div>
     </div>
-
     <div>
       <form class="contact-form" onsubmit="handleSubmit(event)">
-        <input type="text"  placeholder="Your Name *" required />
-        <input type="email" placeholder="Email Address *" required />
-        <input type="text"  placeholder="Company Name" />
-        <select>
-          <option value="" disabled selected>Select Destination Country</option>
-          <option>Philippines</option>
-          <option>Indonesia</option>
-          <option>Vietnam</option>
-          <option>Thailand</option>
-          <option>Malaysia</option>
-          <option>Brunei</option>
-          <option>Other</option>
-        </select>
-        <select>
-          <option value="" disabled selected>Product of Interest</option>
-          <option>Bare Optical Fiber (G.652D)</option>
-          <option>Bare Optical Fiber (G.657A1/A2)</option>
-          <option>Outdoor Cable GYTA / GYTS</option>
-          <option>FTTH Drop Cable</option>
-          <option>Mini Cable GYXTW</option>
-          <option>Multi-mode Fiber OM3/OM4</option>
-          <option>Mixed / Multiple Products</option>
-        </select>
-        <textarea placeholder="Specifications &amp; Quantity (e.g. G.652D bare fiber, 500 kfkm, FOB Shenzhen) *" required></textarea>
-        <button type="submit" class="btn btn-primary">📩 Send Inquiry</button>
-        <p style="font-size:11px;opacity:.6;text-align:center;">We reply within 24 hours · No spam · Strict confidentiality</p>
+        <input type="text"  id="f-name"    data-i18n-ph="form_name"    placeholder="Your Name *" required />
+        <input type="email" id="f-email"   data-i18n-ph="form_email"   placeholder="Email Address *" required />
+        <input type="text"  id="f-company" data-i18n-ph="form_company" placeholder="Company Name" />
+        <select id="f-country"></select>
+        <select id="f-product"></select>
+        <textarea id="f-spec" data-i18n-ph="form_spec" placeholder="Specifications &amp; Quantity *" required></textarea>
+        <button type="submit" class="btn btn-primary" data-i18n="form_submit">📩 Send Inquiry</button>
+        <p style="font-size:11px;opacity:.6;text-align:center;" data-i18n="form_note">We reply within 24 hours · No spam · Strict confidentiality</p>
       </form>
     </div>
-
   </div>
 </section>
 
@@ -729,37 +493,326 @@
 <footer>
   <div>
     <span class="footer-logo">华羿智纤  Huaye Zhixian Technology</span><br/>
-    <span style="margin-top:4px;display:block;">© 2026 Huaye Zhixian Technology Co., Ltd. · Guangdong, China · All rights reserved.</span>
+    <span style="margin-top:4px;display:block;" data-i18n="footer_rights">© 2026 Huaye Zhixian Technology Co., Ltd. · Guangdong, China · All rights reserved.</span>
   </div>
   <div>
-    <a href="#products">Products</a>
-    <a href="#advantages">About</a>
-    <a href="#markets">Markets</a>
-    <a href="#contact">Contact</a>
+    <a href="#products" data-i18n="fn_products">Products</a>
+    <a href="#advantages" data-i18n="fn_about">About</a>
+    <a href="#markets" data-i18n="fn_markets">Markets</a>
+    <a href="#contact" data-i18n="fn_contact">Contact</a>
   </div>
 </footer>
 
 <script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = '✅ Inquiry Sent! We\'ll reply within 24h.';
-    btn.style.background = '#2e7d32';
-    btn.disabled = true;
-  }
+const T = {
+  en: {
+    topbar_left:'🌐 Supplying Southeast Asia · Philippines · Indonesia · Vietnam · Thailand',
+    topbar_contact:'Contact Us', topbar_quote:'Get a Quote',
+    logo_tagline:'Optical Fiber & Cable Export Specialist · Est. 2020 · Guangdong, China',
+    nav_products:'Products', nav_about:'About Us', nav_markets:'Markets', nav_order:'How to Order', nav_contact:'Contact',
+    btn_inquiry:'Inquiry', btn_quote:'Get Quote',
+    hero_tag:'🏭 Factory-Direct Pricing · Southeast Asia Specialist',
+    hero_h2:"China's Premium<br/><span>Optical Fiber &amp; Cable</span><br/>for SEA Markets",
+    hero_p:"Bare optical fiber &amp; finished optical cable — direct from China's upstream production base. Competitive FOB pricing, fast lead times, and compliant export to Philippines, Indonesia, Vietnam &amp; Thailand.",
+    btn_rfq:'📩 Request a Quote', btn_view:'View Products →',
+    stat1_lbl:'Years in<br/>Fiber Industry', stat2_lbl:'Fiber km<br/>Delivered', stat3_lbl:'Core SEA<br/>Markets', stat4_lbl:'Sample<br/>Lead Time',
+    trust1:'Verified Supplier', trust2:'ITU-T G.652D / G.657A Compliant', trust3:'T/T &amp; L/C Accepted', trust4:'FOB / CIF Available', trust5:'FCL &amp; LCL Shipping',
+    sec_prod_title:'Main Products',
+    sec_prod_desc:'Full range of optical fiber and cable solutions — bare fiber for cable factories, and finished cables for ISPs &amp; EPC contractors.',
+    prod1_name:'Bare Optical Fiber — G.652D', prod1_desc:'Single-mode OS2 bare fiber. Low attenuation (≤0.18 dB/km @1550 nm). Ideal for cable factories &amp; secondary processing plants.',
+    prod2_name:'Bare Optical Fiber — G.657A1/A2', prod2_desc:'Bend-insensitive fiber for FTTH drop lines. Min. bend radius 10 mm (A2). Popular in dense urban deployments.',
+    prod3_name:'Outdoor Optical Cable — GYTA', prod3_desc:'Loose-tube, armored, direct-burial / duct. 4–288 fibers. Standard outdoor backbone cable for ISP &amp; EPC projects.',
+    prod4_name:'FTTH Drop Cable', prod4_desc:'G.657A1 single-fiber, 2-fiber, or spider-web designs. Self-supporting &amp; indoor/outdoor variants. Fast-connect ready.',
+    prod5_name:'Mini All-Dielectric Cable — GYXTW', prod5_desc:'Compact, lightweight, central loose-tube design. 6–24 fibers. Popular for aerial and duct MDU deployments.',
+    prod6_name:'Multi-mode OM3 / OM4 Fiber', prod6_desc:'50/125 µm laser-optimized fiber for data center interconnects. High bandwidth, low insertion loss.',
+    inquire_now:'Inquire Now',
+    sec_adv_title:'Why Choose 华羿智纤?',
+    sec_adv_desc:'We bring upstream China manufacturing cost advantages directly to Southeast Asian buyers — no middlemen, faster quotes, better margins.',
+    adv1_title:'Direct Upstream Access', adv1_desc:'Stable supply relationships with major Chinese fiber preform and cable manufacturers. We pass the cost advantage straight to you — no extra markup layers.',
+    adv2_title:'Competitive FOB Pricing', adv2_desc:'Our EXW cost base beats most regional resellers. We offer transparent FOB quotations from Shenzhen, Guangzhou Nansha, or Ningbo — pick your preferred load port.',
+    adv3_title:'Fast Delivery', adv3_desc:'Bare fiber: ex-stock or 5–10 day lead time. Finished cable: 15–25 days. Rush orders accommodated. LCL trial shipments welcome for first orders.',
+    adv4_title:'Compliance-Ready Products', adv4_desc:'Bare fiber carries no mandatory product certification in most SEA markets — the fastest path to import. Finished cable certifications (SDPPI for Indonesia, etc.) available on request.',
+    adv5_title:'Secure Payment Terms', adv5_desc:'We accept T/T advance, 30% deposit + balance on B/L copy, and Sight L/C. Transparent terms protect both sides — no surprises.',
+    adv6_title:'Dedicated SEA Support', adv6_desc:'English &amp; Chinese speaking export team familiar with Philippines, Indonesia, Vietnam and Thai import procedures. We handle customs docs, CoO, and HS code guidance.',
+    sec_mkt_title:'Our Core Export Markets',
+    sec_mkt_desc:'Southeast Asia is in the middle of a FTTH construction boom — $15B+ committed 2025–2028. We ship to private ISPs, cable factories, and EPC contractors.',
+    mkt1_sub:'NFB backbone + PLDT &amp; Converge expansion. Open import market, zero AD duties on Chinese fiber.', mkt1_badge:'🔥 Priority #1',
+    mkt2_sub:'FTTH &amp; FWA high growth. Private ISP channel open; no mandatory TKDN for private buyers.', mkt2_badge:'🔥 Priority #2',
+    mkt3_sub:'National backbone rollout at full speed. No anti-dumping on Chinese fiber/cable. Direct export viable.', mkt3_badge:'✅ Open Market',
+    mkt4_sub:'Ongoing fiber infrastructure upgrades. CAT Telecom and private ISPs actively sourcing.', mkt4_badge:'✅ Open Market',
+    mkt5_sub:'Jalinan Digital Negara (JENDELA) broadband plan driving steady cable demand.', mkt5_badge:'✅ Secondary',
+    mkt6_sub:'Small but high-value market with ongoing fiber upgrade projects for government &amp; enterprise.', mkt6_badge:'✅ Secondary',
+    sec_cert_title:'Standards &amp; Quality Assurance',
+    sec_cert_desc:'All products are manufactured and tested against international telecom standards. Factory inspection reports provided with every shipment.',
+    cert7:'Factory QC Report w/ every order', cert8:'CoO &amp; Export Documentation',
+    sec_proc_title:'How to Order — 4 Simple Steps',
+    sec_proc_desc:'From inquiry to shipment — our streamlined process gets your first order out in weeks, not months.',
+    step1_title:'Send Inquiry', step1_desc:'Tell us product spec, quantity, destination port &amp; preferred Incoterms.',
+    step2_title:'Receive Quote', step2_desc:'We reply within 24 h with itemized FOB / CIF price, lead time &amp; spec sheet.',
+    step3_title:'Confirm &amp; Pay', step3_desc:'Sign PI, pay deposit (T/T 30% or sight L/C). Production starts immediately.',
+    step4_title:'Ship &amp; Deliver', step4_desc:'We handle booking, customs, B/L &amp; full export docs. You receive goods on time.',
+    sec_contact_title:'Get in Touch',
+    sec_contact_desc:"Ready to source? Send us your specs and we'll reply within 24 hours with a competitive quote.",
+    contact_details:'Contact Details',
+    contact_addr:'<strong>华羿智纤科技有限公司</strong><br/>Huaye Zhixian Technology Co., Ltd.<br/>Guangdong, China',
+    contact_email_sub:'Export inquiries &amp; RFQ', contact_chat:'WhatsApp / WeChat available', contact_chat_sub:'Ask for rep contact on first inquiry',
+    contact_hours:'Mon–Fri  09:00–18:00 CST (UTC+8)',
+    contact_ports:'Main Load Ports:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo',
+    form_name:'Your Name *', form_email:'Email Address *', form_company:'Company Name',
+    form_country_label:'Select Destination Country', form_product_label:'Product of Interest',
+    form_spec:'Specifications & Quantity (e.g. G.652D bare fiber, 500 kfkm, FOB Shenzhen) *',
+    form_submit:'📩 Send Inquiry', form_note:'We reply within 24 hours · No spam · Strict confidentiality',
+    footer_rights:'© 2026 Huaye Zhixian Technology Co., Ltd. · Guangdong, China · All rights reserved.',
+    fn_products:'Products', fn_about:'About', fn_markets:'Markets', fn_contact:'Contact',
+    form_countries:['Philippines','Indonesia','Vietnam','Thailand','Malaysia','Brunei','Other'],
+    form_products:['Bare Optical Fiber (G.652D)','Bare Optical Fiber (G.657A1/A2)','Outdoor Cable GYTA / GYTS','FTTH Drop Cable','Mini Cable GYXTW','Multi-mode Fiber OM3/OM4','Mixed / Multiple Products'],
+  },
+  zh: {
+    topbar_left:'🌐 服务东南亚市场 · 菲律宾 · 印度尼西亚 · 越南 · 泰国',
+    topbar_contact:'联系我们', topbar_quote:'获取报价',
+    logo_tagline:'光纤光缆出口专家 · 成立于2020年 · 中国广东',
+    nav_products:'产品', nav_about:'关于我们', nav_markets:'市场', nav_order:'下单流程', nav_contact:'联系',
+    btn_inquiry:'询盘', btn_quote:'获取报价',
+    hero_tag:'🏭 工厂直供价格 · 东南亚市场专家',
+    hero_h2:'中国优质<br/><span>光纤光缆</span><br/>服务东南亚',
+    hero_p:'裸光纤与成品光缆——直接来自中国上游产能基地。竞争性FOB报价，快速交货，合规出口至菲律宾、印尼、越南及泰国。',
+    btn_rfq:'📩 立即询价', btn_view:'查看产品 →',
+    stat1_lbl:'光纤行业<br/>从业年限', stat2_lbl:'光纤公里<br/>已交付', stat3_lbl:'核心东南亚<br/>市场', stat4_lbl:'样品<br/>交货期',
+    trust1:'认证供应商', trust2:'ITU-T G.652D / G.657A 合规', trust3:'支持T/T &amp; 信用证', trust4:'提供FOB / CIF', trust5:'整柜与拼箱均可',
+    sec_prod_title:'主要产品',
+    sec_prod_desc:'完整的光纤光缆产品线——裸光纤供应成缆厂，成品光缆服务ISP及工程总包商（EPC）。',
+    prod1_name:'裸光纤 — G.652D', prod1_desc:'单模OS2裸光纤。低衰减（≤0.18 dB/km @1550 nm）。适合成缆厂及二次加工厂。',
+    prod2_name:'裸光纤 — G.657A1/A2', prod2_desc:'弯曲不敏感光纤，适用于FTTH蝶形入户缆。最小弯曲半径10 mm（A2型）。城市密集部署首选。',
+    prod3_name:'室外光缆 — GYTA', prod3_desc:'松套管铠装，直埋/管道敷设。4–288芯。ISP骨干网及EPC项目标准用缆。',
+    prod4_name:'FTTH蝶形入户缆', prod4_desc:'G.657A1单芯、双芯或蜘蛛网结构。自承式及室内外两用版本。支持快速连接器。',
+    prod5_name:'微型全介质光缆 — GYXTW', prod5_desc:'中心松套管设计，体积小、重量轻。6–24芯。适合架空及管道MDU部署。',
+    prod6_name:'多模光纤 OM3 / OM4', prod6_desc:'50/125 µm激光优化光纤，用于数据中心互联。高带宽，低插入损耗。',
+    inquire_now:'立即询价',
+    sec_adv_title:'为什么选择华羿智纤？',
+    sec_adv_desc:'我们将中国上游制造成本优势直接传递给东南亚买家——无中间商，报价更快，利润空间更大。',
+    adv1_title:'直连上游产能', adv1_desc:'与国内主要光纤预制棒及光缆制造商保持稳定合作。成本优势直接传递给您，无额外加价层级。',
+    adv2_title:'竞争性FOB报价', adv2_desc:'我们的出厂价（EXW）优于大多数区域经销商。提供透明FOB报价，可选深圳、广州南沙或宁波出口。',
+    adv3_title:'快速交货', adv3_desc:'裸光纤：现货或5–10天交期。成品光缆：15–25天。可接受加急订单。首单欢迎LCL拼箱试水。',
+    adv4_title:'合规产品', adv4_desc:'裸光纤在大多数东南亚市场无强制产品认证——进口合规最便捷。成品光缆认证（如印尼SDPPI等）可按需办理。',
+    adv5_title:'安全收款条款', adv5_desc:'接受T/T预付、30%定金+提单复印件付余款及即期信用证。条款透明，双方均有保障。',
+    adv6_title:'专属东南亚支持', adv6_desc:'中英双语出口团队，熟悉菲律宾、印尼、越南及泰国进口手续。我们处理报关单据、产地证及HS编码咨询。',
+    sec_mkt_title:'核心出口市场',
+    sec_mkt_desc:'东南亚正处于FTTH建设高峰期——2025–2028年合计承诺投入超150亿美元。我们向私营ISP、成缆厂及EPC承包商供货。',
+    mkt1_sub:'NFB骨干网 + PLDT及Converge扩网。市场开放，中国光纤零反倾销税。', mkt1_badge:'🔥 优先级第一',
+    mkt2_sub:'FTTH及FWA高速增长。私营ISP渠道畅通；私营买家无强制TKDN要求。', mkt2_badge:'🔥 优先级第二',
+    mkt3_sub:'全国骨干网高速铺设。无反倾销税。直接出口可行。', mkt3_badge:'✅ 开放市场',
+    mkt4_sub:'光纤基础设施持续升级。CAT Telecom及私营ISP积极采购。', mkt4_badge:'✅ 开放市场',
+    mkt5_sub:'JENDELA宽带计划持续推动稳定线缆需求。', mkt5_badge:'✅ 次要市场',
+    mkt6_sub:'小而高价值市场，政府及企业光纤升级项目持续推进。', mkt6_badge:'✅ 次要市场',
+    sec_cert_title:'标准与质量保障',
+    sec_cert_desc:'所有产品按国际电信标准制造与测试。每批货物随附工厂检验报告。',
+    cert7:'每单随附工厂质检报告', cert8:'产地证及出口文件',
+    sec_proc_title:'下单流程 — 4个简单步骤',
+    sec_proc_desc:'从询盘到发货——我们的流程确保您的首单在数周内完成，而不是数月。',
+    step1_title:'发送询盘', step1_desc:'告知产品规格、数量、目的港及贸易术语。',
+    step2_title:'收到报价', step2_desc:'我们24小时内回复，提供逐项FOB/CIF报价、交期及规格书。',
+    step3_title:'确认付款', step3_desc:'签署形式发票，支付定金（T/T 30%或即期信用证）。立即开始生产。',
+    step4_title:'发货交付', step4_desc:'我们处理订舱、报关、提单及全套出口文件。按时收货。',
+    sec_contact_title:'联系我们',
+    sec_contact_desc:'准备采购？发送规格给我们，我们将在24小时内回复有竞争力的报价。',
+    contact_details:'联系方式',
+    contact_addr:'<strong>华羿智纤科技有限公司</strong><br/>Huaye Zhixian Technology Co., Ltd.<br/>中国广东',
+    contact_email_sub:'出口询盘与RFQ', contact_chat:'WhatsApp / 微信均可', contact_chat_sub:'首次询盘时请求销售代表联系方式',
+    contact_hours:'周一至周五 09:00–18:00（北京时间 UTC+8）',
+    contact_ports:'主要装货港：<br/>深圳（盐田/蛇口）· 广州南沙 · 宁波',
+    form_name:'您的姓名 *', form_email:'电子邮箱 *', form_company:'公司名称',
+    form_country_label:'选择目的国', form_product_label:'感兴趣的产品',
+    form_spec:'规格与数量（例：G.652D裸光纤，500 kfkm，FOB深圳）*',
+    form_submit:'📩 发送询盘', form_note:'24小时内回复 · 不发垃圾邮件 · 严格保密',
+    footer_rights:'© 2026 华羿智纤科技有限公司 · 中国广东 · 保留所有权利',
+    fn_products:'产品', fn_about:'关于', fn_markets:'市场', fn_contact:'联系',
+    form_countries:['菲律宾','印度尼西亚','越南','泰国','马来西亚','文莱','其他'],
+    form_products:['裸光纤 (G.652D)','裸光纤 (G.657A1/A2)','室外光缆 GYTA / GYTS','FTTH蝶形入户缆','微型光缆 GYXTW','多模光纤 OM3/OM4','多种产品'],
+  },
+  id: {
+    topbar_left:'🌐 Melayani Asia Tenggara · Filipina · Indonesia · Vietnam · Thailand',
+    topbar_contact:'Hubungi Kami', topbar_quote:'Minta Penawaran',
+    logo_tagline:'Spesialis Ekspor Serat Optik &amp; Kabel · Est. 2020 · Guangdong, Tiongkok',
+    nav_products:'Produk', nav_about:'Tentang Kami', nav_markets:'Pasar', nav_order:'Cara Pesan', nav_contact:'Kontak',
+    btn_inquiry:'Tanya Harga', btn_quote:'Minta Penawaran',
+    hero_tag:'🏭 Harga Langsung Pabrik · Spesialis Asia Tenggara',
+    hero_h2:'Serat Optik &amp; Kabel<br/><span>Berkualitas Tiongkok</span><br/>untuk Pasar ASEAN',
+    hero_p:'Serat optik telanjang &amp; kabel optik jadi — langsung dari basis produksi hulu Tiongkok. Harga FOB kompetitif, pengiriman cepat, ekspor legal ke Filipina, Indonesia, Vietnam &amp; Thailand.',
+    btn_rfq:'📩 Minta Penawaran', btn_view:'Lihat Produk →',
+    stat1_lbl:'Tahun di<br/>Industri Serat', stat2_lbl:'Km Serat<br/>Terkirim', stat3_lbl:'Pasar Inti<br/>Asia Tenggara', stat4_lbl:'Lead Time<br/>Sampel',
+    trust1:'Pemasok Terverifikasi', trust2:'Sesuai ITU-T G.652D / G.657A', trust3:'T/T &amp; L/C Diterima', trust4:'FOB / CIF Tersedia', trust5:'FCL &amp; LCL Tersedia',
+    sec_prod_title:'Produk Utama',
+    sec_prod_desc:'Rangkaian lengkap solusi serat optik dan kabel — serat telanjang untuk pabrik kabel, kabel jadi untuk ISP &amp; kontraktor EPC.',
+    prod1_name:'Serat Optik Telanjang — G.652D', prod1_desc:'Serat monomode OS2. Redaman rendah (≤0,18 dB/km @1550 nm). Ideal untuk pabrik kabel &amp; fasilitas pengolahan sekunder.',
+    prod2_name:'Serat Optik Telanjang — G.657A1/A2', prod2_desc:'Serat tahan tekukan untuk kabel drop FTTH. Radius tekuk min. 10 mm (A2). Populer di penyebaran urban padat.',
+    prod3_name:'Kabel Optik Luar Ruang — GYTA', prod3_desc:'Tabung longgar, berlapis baja, tanam langsung/conduit. 4–288 inti. Kabel backbone luar ruang standar untuk ISP &amp; EPC.',
+    prod4_name:'Kabel Drop FTTH', prod4_desc:'Desain G.657A1 1-inti, 2-inti, atau jaring laba-laba. Varian mandiri &amp; indoor/outdoor. Siap koneksi cepat.',
+    prod5_name:'Kabel Mini Non-Logam — GYXTW', prod5_desc:'Desain tabung longgar sentral, kompak, ringan. 6–24 inti. Populer untuk penyebaran aerial dan duct MDU.',
+    prod6_name:'Serat Multimode OM3 / OM4', prod6_desc:'50/125 µm serat teroptimasi laser untuk interkoneksi pusat data. Bandwidth tinggi, rugi insersi rendah.',
+    inquire_now:'Tanya Sekarang',
+    sec_adv_title:'Mengapa Memilih Huaye Zhixian?',
+    sec_adv_desc:'Kami membawa keunggulan biaya manufaktur hulu Tiongkok langsung ke pembeli Asia Tenggara — tanpa perantara, penawaran lebih cepat, margin lebih baik.',
+    adv1_title:'Akses Langsung Hulu', adv1_desc:'Hubungan pasokan stabil dengan produsen preform serat dan kabel Tiongkok utama. Kami teruskan keunggulan biaya langsung kepada Anda.',
+    adv2_title:'Harga FOB Kompetitif', adv2_desc:'Biaya EXW kami lebih baik dari sebagian besar reseller regional. Penawaran FOB transparan dari Shenzhen, Guangzhou Nansha, atau Ningbo.',
+    adv3_title:'Pengiriman Cepat', adv3_desc:'Serat telanjang: stok/5–10 hari. Kabel jadi: 15–25 hari. Pesanan mendesak diakomodasi. LCL untuk percobaan pesanan pertama.',
+    adv4_title:'Produk Siap Regulasi', adv4_desc:'Serat telanjang tidak perlu sertifikasi wajib di sebagian besar pasar ASEAN. Sertifikasi kabel jadi (SDPPI, dll.) tersedia atas permintaan.',
+    adv5_title:'Syarat Pembayaran Aman', adv5_desc:'Menerima T/T di muka, 30% uang muka + sisa saat salinan B/L, dan Sight L/C. Syarat transparan melindungi kedua pihak.',
+    adv6_title:'Dukungan ASEAN Khusus', adv6_desc:'Tim ekspor berbahasa Inggris &amp; Mandarin yang familiar dengan prosedur impor Filipina, Indonesia, Vietnam &amp; Thailand.',
+    sec_mkt_title:'Pasar Ekspor Inti Kami',
+    sec_mkt_desc:'Asia Tenggara sedang dalam boom pembangunan FTTH — lebih dari $15 miliar berkomitmen 2025–2028. Kami kirim ke ISP swasta, pabrik kabel, dan kontraktor EPC.',
+    mkt1_sub:'Backbone NFB + ekspansi PLDT &amp; Converge. Pasar impor terbuka, nol bea AD untuk serat Tiongkok.', mkt1_badge:'🔥 Prioritas #1',
+    mkt2_sub:'Pertumbuhan tinggi FTTH &amp; FWA. Saluran ISP swasta terbuka; tidak ada TKDN wajib untuk pembeli swasta.', mkt2_badge:'🔥 Prioritas #2',
+    mkt3_sub:'Pembangunan backbone nasional penuh. Tidak ada anti-dumping untuk serat/kabel Tiongkok.', mkt3_badge:'✅ Pasar Terbuka',
+    mkt4_sub:'Peningkatan infrastruktur serat berkelanjutan. CAT Telecom dan ISP swasta aktif sourcing.', mkt4_badge:'✅ Pasar Terbuka',
+    mkt5_sub:'Rencana broadband JENDELA mendorong permintaan kabel yang stabil.', mkt5_badge:'✅ Sekunder',
+    mkt6_sub:'Pasar kecil bernilai tinggi dengan proyek peningkatan serat untuk pemerintah &amp; perusahaan.', mkt6_badge:'✅ Sekunder',
+    sec_cert_title:'Standar &amp; Jaminan Kualitas',
+    sec_cert_desc:'Semua produk diproduksi dan diuji sesuai standar telekomunikasi internasional. Laporan inspeksi pabrik disertakan setiap pengiriman.',
+    cert7:'Laporan QC Pabrik setiap pesanan', cert8:'CoO &amp; Dokumentasi Ekspor',
+    sec_proc_title:'Cara Pesan — 4 Langkah Mudah',
+    sec_proc_desc:'Dari penawaran hingga pengiriman — proses kami yang efisien menyelesaikan pesanan pertama Anda dalam beberapa minggu.',
+    step1_title:'Kirim Pertanyaan', step1_desc:'Beri tahu kami spesifikasi produk, jumlah, pelabuhan tujuan &amp; Incoterms yang diinginkan.',
+    step2_title:'Terima Penawaran', step2_desc:'Kami membalas dalam 24 jam dengan harga FOB/CIF terperinci, lead time &amp; lembar spesifikasi.',
+    step3_title:'Konfirmasi &amp; Bayar', step3_desc:'Tanda tangani PI, bayar uang muka (T/T 30% atau sight L/C). Produksi dimulai segera.',
+    step4_title:'Kirim &amp; Terima', step4_desc:'Kami menangani booking, bea cukai, B/L &amp; dokumen ekspor lengkap. Barang tiba tepat waktu.',
+    sec_contact_title:'Hubungi Kami',
+    sec_contact_desc:'Siap untuk sourcing? Kirimkan spesifikasi Anda dan kami akan membalas dalam 24 jam.',
+    contact_details:'Detail Kontak',
+    contact_addr:'<strong>华羿智纤科技有限公司</strong><br/>Huaye Zhixian Technology Co., Ltd.<br/>Guangdong, Tiongkok',
+    contact_email_sub:'Pertanyaan ekspor &amp; RFQ', contact_chat:'WhatsApp / WeChat tersedia', contact_chat_sub:'Minta kontak perwakilan saat pertanyaan pertama',
+    contact_hours:'Sen–Jum  09:00–18:00 CST (UTC+8)',
+    contact_ports:'Pelabuhan Muat Utama:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo',
+    form_name:'Nama Anda *', form_email:'Alamat Email *', form_company:'Nama Perusahaan',
+    form_country_label:'Pilih Negara Tujuan', form_product_label:'Produk yang Diminati',
+    form_spec:'Spesifikasi &amp; Jumlah (mis. serat G.652D, 500 kfkm, FOB Shenzhen) *',
+    form_submit:'📩 Kirim Pertanyaan', form_note:'Kami membalas dalam 24 jam · Tanpa spam · Kerahasiaan ketat',
+    footer_rights:'© 2026 Huaye Zhixian Technology Co., Ltd. · Guangdong, Tiongkok · Hak Cipta Dilindungi.',
+    fn_products:'Produk', fn_about:'Tentang', fn_markets:'Pasar', fn_contact:'Kontak',
+    form_countries:['Filipina','Indonesia','Vietnam','Thailand','Malaysia','Brunei','Lainnya'],
+    form_products:['Serat Optik Telanjang (G.652D)','Serat Optik Telanjang (G.657A1/A2)','Kabel Luar Ruang GYTA / GYTS','Kabel Drop FTTH','Kabel Mini GYXTW','Serat Multimode OM3/OM4','Beberapa Produk'],
+  },
+  vi: {
+    topbar_left:'🌐 Phục vụ Đông Nam Á · Philippines · Indonesia · Việt Nam · Thái Lan',
+    topbar_contact:'Liên hệ', topbar_quote:'Yêu cầu báo giá',
+    logo_tagline:'Chuyên gia xuất khẩu cáp quang · Thành lập 2020 · Quảng Đông, Trung Quốc',
+    nav_products:'Sản phẩm', nav_about:'Về chúng tôi', nav_markets:'Thị trường', nav_order:'Đặt hàng', nav_contact:'Liên hệ',
+    btn_inquiry:'Hỏi giá', btn_quote:'Báo giá',
+    hero_tag:'🏭 Giá trực tiếp nhà máy · Chuyên gia Đông Nam Á',
+    hero_h2:'Cáp quang Trung Quốc<br/><span>chất lượng cao</span><br/>cho thị trường ĐNA',
+    hero_p:'Sợi quang trần &amp; cáp quang thành phẩm — trực tiếp từ cơ sở sản xuất thượng nguồn Trung Quốc. Giá FOB cạnh tranh, giao hàng nhanh, xuất khẩu hợp lệ đến Philippines, Indonesia, Việt Nam &amp; Thái Lan.',
+    btn_rfq:'📩 Yêu cầu báo giá', btn_view:'Xem sản phẩm →',
+    stat1_lbl:'Năm kinh nghiệm<br/>ngành cáp quang', stat2_lbl:'Km sợi quang<br/>đã giao', stat3_lbl:'Thị trường<br/>trọng điểm ĐNA', stat4_lbl:'Thời gian<br/>giao mẫu',
+    trust1:'Nhà cung cấp đã xác minh', trust2:'Đạt chuẩn ITU-T G.652D / G.657A', trust3:'Chấp nhận T/T &amp; L/C', trust4:'FOB / CIF', trust5:'FCL &amp; LCL',
+    sec_prod_title:'Sản phẩm chính',
+    sec_prod_desc:'Đầy đủ giải pháp sợi quang và cáp quang — sợi trần cho nhà máy cáp, cáp thành phẩm cho ISP &amp; nhà thầu EPC.',
+    prod1_name:'Sợi quang trần — G.652D', prod1_desc:'Sợi đơn mode OS2. Suy hao thấp (≤0,18 dB/km @1550 nm). Lý tưởng cho nhà máy cáp &amp; cơ sở gia công thứ cấp.',
+    prod2_name:'Sợi quang trần — G.657A1/A2', prod2_desc:'Sợi chống uốn cong cho cáp drop FTTH. Bán kính uốn tối thiểu 10 mm (A2). Phổ biến trong triển khai đô thị dày đặc.',
+    prod3_name:'Cáp quang ngoài trời — GYTA', prod3_desc:'Ống lỏng, giáp, chôn trực tiếp/cống. 4–288 sợi. Cáp backbone ngoài trời tiêu chuẩn cho ISP &amp; EPC.',
+    prod4_name:'Cáp drop FTTH', prod4_desc:'G.657A1 thiết kế 1 sợi, 2 sợi, hoặc mạng nhện. Tự treo &amp; phiên bản trong/ngoài nhà. Sẵn sàng kết nối nhanh.',
+    prod5_name:'Cáp mini phi kim loại — GYXTW', prod5_desc:'Thiết kế ống lỏng trung tâm, nhỏ gọn, nhẹ. 6–24 sợi. Phổ biến cho triển khai aerial và duct MDU.',
+    prod6_name:'Sợi đa mode OM3 / OM4', prod6_desc:'50/125 µm sợi tối ưu laser cho kết nối trung tâm dữ liệu. Băng thông cao, suy hao chèn thấp.',
+    inquire_now:'Hỏi ngay',
+    sec_adv_title:'Tại sao chọn Huaye Zhixian?',
+    sec_adv_desc:'Chúng tôi mang lợi thế chi phí sản xuất thượng nguồn Trung Quốc trực tiếp đến người mua Đông Nam Á — không trung gian, báo giá nhanh hơn, biên lợi nhuận tốt hơn.',
+    adv1_title:'Tiếp cận trực tiếp thượng nguồn', adv1_desc:'Quan hệ cung ứng ổn định với các nhà sản xuất preform sợi và cáp lớn của Trung Quốc. Lợi thế chi phí chuyển thẳng đến bạn.',
+    adv2_title:'Giá FOB cạnh tranh', adv2_desc:'Giá cơ sở EXW của chúng tôi tốt hơn hầu hết đại lý khu vực. Báo giá FOB minh bạch từ Thâm Quyến, Quảng Châu Nansha, hoặc Ninh Ba.',
+    adv3_title:'Giao hàng nhanh', adv3_desc:'Sợi trần: hàng sẵn hoặc 5–10 ngày. Cáp thành phẩm: 15–25 ngày. Chấp nhận đơn hàng khẩn. LCL thử nghiệm cho đơn đầu tiên.',
+    adv4_title:'Sản phẩm sẵn sàng tuân thủ', adv4_desc:'Sợi trần không cần chứng nhận bắt buộc ở hầu hết thị trường ĐNA. Chứng nhận cáp thành phẩm (SDPPI, v.v.) theo yêu cầu.',
+    adv5_title:'Điều khoản thanh toán an toàn', adv5_desc:'Chấp nhận T/T trả trước, đặt cọc 30% + số dư khi nhận bản sao B/L, và Sight L/C. Điều khoản minh bạch bảo vệ cả hai bên.',
+    adv6_title:'Hỗ trợ ĐNA chuyên biệt', adv6_desc:'Đội ngũ xuất khẩu nói tiếng Anh &amp; Trung quen thuộc với thủ tục nhập khẩu Philippines, Indonesia, Việt Nam &amp; Thái Lan.',
+    sec_mkt_title:'Thị trường xuất khẩu trọng điểm',
+    sec_mkt_desc:'Đông Nam Á đang trong đợt bùng nổ xây dựng FTTH — hơn 15 tỷ USD cam kết 2025–2028. Chúng tôi giao hàng cho ISP tư nhân, nhà máy cáp và nhà thầu EPC.',
+    mkt1_sub:'Backbone NFB + mở rộng PLDT &amp; Converge. Thị trường nhập khẩu mở, thuế AD bằng 0 với sợi Trung Quốc.', mkt1_badge:'🔥 Ưu tiên #1',
+    mkt2_sub:'Tăng trưởng cao FTTH &amp; FWA. Kênh ISP tư nhân mở; không có TKDN bắt buộc cho người mua tư nhân.', mkt2_badge:'🔥 Ưu tiên #2',
+    mkt3_sub:'Triển khai backbone quốc gia tốc độ cao. Không có chống bán phá giá với sợi/cáp Trung Quốc.', mkt3_badge:'✅ Thị trường mở',
+    mkt4_sub:'Nâng cấp cơ sở hạ tầng sợi quang liên tục. CAT Telecom và ISP tư nhân đang tích cực tìm nguồn cung.', mkt4_badge:'✅ Thị trường mở',
+    mkt5_sub:'Kế hoạch băng thông rộng JENDELA thúc đẩy nhu cầu cáp ổn định.', mkt5_badge:'✅ Thứ cấp',
+    mkt6_sub:'Thị trường nhỏ nhưng giá trị cao với các dự án nâng cấp sợi quang cho chính phủ &amp; doanh nghiệp.', mkt6_badge:'✅ Thứ cấp',
+    sec_cert_title:'Tiêu chuẩn &amp; Đảm bảo chất lượng',
+    sec_cert_desc:'Tất cả sản phẩm được sản xuất và kiểm tra theo tiêu chuẩn viễn thông quốc tế. Báo cáo kiểm tra nhà máy đi kèm mỗi lô hàng.',
+    cert7:'Báo cáo QC nhà máy kèm mỗi đơn', cert8:'CoO &amp; Tài liệu xuất khẩu',
+    sec_proc_title:'Cách đặt hàng — 4 bước đơn giản',
+    sec_proc_desc:'Từ hỏi giá đến vận chuyển — quy trình của chúng tôi giúp hoàn thành đơn hàng đầu tiên trong vài tuần.',
+    step1_title:'Gửi yêu cầu', step1_desc:'Cho chúng tôi biết thông số sản phẩm, số lượng, cảng đích &amp; Incoterms mong muốn.',
+    step2_title:'Nhận báo giá', step2_desc:'Chúng tôi phản hồi trong 24 giờ với báo giá FOB/CIF chi tiết, thời gian giao hàng &amp; tờ thông số.',
+    step3_title:'Xác nhận &amp; Thanh toán', step3_desc:'Ký PI, thanh toán đặt cọc (T/T 30% hoặc sight L/C). Sản xuất bắt đầu ngay.',
+    step4_title:'Vận chuyển &amp; Giao hàng', step4_desc:'Chúng tôi xử lý đặt tàu, hải quan, B/L &amp; toàn bộ chứng từ xuất khẩu. Bạn nhận hàng đúng hạn.',
+    sec_contact_title:'Liên hệ với chúng tôi',
+    sec_contact_desc:'Sẵn sàng mua hàng? Gửi thông số cho chúng tôi và chúng tôi sẽ phản hồi trong 24 giờ với báo giá cạnh tranh.',
+    contact_details:'Thông tin liên hệ',
+    contact_addr:'<strong>华羿智纤科技有限公司</strong><br/>Huaye Zhixian Technology Co., Ltd.<br/>Quảng Đông, Trung Quốc',
+    contact_email_sub:'Yêu cầu xuất khẩu &amp; RFQ', contact_chat:'WhatsApp / WeChat', contact_chat_sub:'Yêu cầu liên hệ đại diện khi hỏi lần đầu',
+    contact_hours:'Thứ 2–6  09:00–18:00 CST (UTC+8)',
+    contact_ports:'Cảng bốc hàng chính:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo',
+    form_name:'Tên của bạn *', form_email:'Địa chỉ Email *', form_company:'Tên công ty',
+    form_country_label:'Chọn quốc gia đích', form_product_label:'Sản phẩm quan tâm',
+    form_spec:'Thông số &amp; Số lượng (vd: sợi G.652D, 500 kfkm, FOB Shenzhen) *',
+    form_submit:'📩 Gửi yêu cầu', form_note:'Phản hồi trong 24 giờ · Không spam · Bảo mật nghiêm ngặt',
+    footer_rights:'© 2026 Huaye Zhixian Technology Co., Ltd. · Quảng Đông, Trung Quốc · Bảo lưu mọi quyền.',
+    fn_products:'Sản phẩm', fn_about:'Giới thiệu', fn_markets:'Thị trường', fn_contact:'Liên hệ',
+    form_countries:['Philippines','Indonesia','Việt Nam','Thái Lan','Malaysia','Brunei','Khác'],
+    form_products:['Sợi quang trần (G.652D)','Sợi quang trần (G.657A1/A2)','Cáp ngoài trời GYTA / GYTS','Cáp drop FTTH','Cáp mini GYXTW','Sợi đa mode OM3/OM4','Nhiều sản phẩm'],
+  },
+};
 
-  // Highlight active nav on scroll
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('nav a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function buildSelect(el, options, labelKey) {
+  const lang = currentLang;
+  const label = T[lang][labelKey] || options[0];
+  el.innerHTML = `<option value="" disabled selected>${label}</option>` +
+    options.map(o => `<option>${o}</option>`).join('');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+
+  // Update active button
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang)
+  );
+
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (T[lang] && T[lang][key] !== undefined) el.innerHTML = T[lang][key];
   });
+
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh;
+    if (T[lang] && T[lang][key] !== undefined) el.placeholder = T[lang][key];
+  });
+
+  // Rebuild selects
+  buildSelect(document.getElementById('f-country'), T[lang].form_countries, 'form_country_label');
+  buildSelect(document.getElementById('f-product'), T[lang].form_products,  'form_product_label');
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  const msgs = { en:'✅ Inquiry Sent! We\'ll reply within 24h.', zh:'✅ 询盘已发送！我们将在24小时内回复。', id:'✅ Pertanyaan Terkirim! Kami membalas dalam 24 jam.', vi:'✅ Đã gửi! Chúng tôi phản hồi trong 24 giờ.' };
+  btn.textContent = msgs[currentLang] || msgs.en;
+  btn.style.background = '#2e7d32';
+  btn.disabled = true;
+}
+
+// Active nav on scroll
+window.addEventListener('scroll', () => {
+  let current = '';
+  document.querySelectorAll('section[id]').forEach(s => {
+    if (window.scrollY >= s.offsetTop - 90) current = s.id;
+  });
+  document.querySelectorAll('nav a').forEach(a =>
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current)
+  );
+});
+
+// Init
+setLang(currentLang);
 </script>
 
 </body>
