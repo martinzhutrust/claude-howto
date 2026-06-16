@@ -228,10 +228,10 @@
     <a href="#contact" data-i18n="topbar_quote">Get a Quote</a>
     <a href="mailto:sales@huayezhixian.com">sales@huayezhixian.com</a>
     <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
-      <button class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button>
-      <button class="lang-btn" data-lang="vi" onclick="setLang('vi')">VI</button>
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="zh">中文</button>
+      <button class="lang-btn" data-lang="id">ID</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
     </div>
   </div>
 </div>
@@ -263,8 +263,8 @@
   </nav>
 
   <div class="header-cta">
-    <button class="btn btn-outline" data-i18n="btn_inquiry" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inquiry</button>
-    <button class="btn btn-primary" data-i18n="btn_quote" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+    <button class="btn btn-outline" data-i18n="btn_inquiry" id="hdr-inquiry">Inquiry</button>
+    <button class="btn btn-primary" data-i18n="btn_quote" id="hdr-quote">Get Quote</button>
   </div>
 </header>
 
@@ -275,8 +275,8 @@
     <h2 data-i18n="hero_h2">China's Premium<br/><span>Optical Fiber &amp; Cable</span><br/>for SEA Markets</h2>
     <p data-i18n="hero_p">Bare optical fiber &amp; finished optical cable — direct from China's upstream production base. Competitive FOB pricing, fast lead times, and compliant export to Philippines, Indonesia, Vietnam &amp; Thailand.</p>
     <div class="hero-btns">
-      <button class="btn-primary btn" data-i18n="btn_rfq" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📩 Request a Quote</button>
-      <button class="btn-ghost" data-i18n="btn_view" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products →</button>
+      <button class="btn-primary btn" data-i18n="btn_rfq" id="hero-rfq">📩 Request a Quote</button>
+      <button class="btn-ghost" data-i18n="btn_view" id="hero-view">View Products →</button>
     </div>
   </div>
 
@@ -755,7 +755,8 @@ const T = {
   },
 };
 
-let currentLang = localStorage.getItem('lang') || 'en';
+let currentLang = 'en';
+try { currentLang = localStorage.getItem('lang') || 'en'; } catch(e) {}
 
 function buildSelect(el, options, labelKey) {
   const lang = currentLang;
@@ -811,8 +812,30 @@ window.addEventListener('scroll', () => {
   );
 });
 
-// Init
-setLang(currentLang);
+// Wire up all buttons via addEventListener (avoids CSP inline-script blocks)
+document.addEventListener('DOMContentLoaded', function() {
+  // Language switcher
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Scroll-to-contact buttons
+  ['hdr-inquiry', 'hdr-quote', 'hero-rfq'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () =>
+      document.getElementById('contact').scrollIntoView({behavior: 'smooth'})
+    );
+  });
+
+  // Scroll-to-products button
+  const heroView = document.getElementById('hero-view');
+  if (heroView) heroView.addEventListener('click', () =>
+    document.getElementById('products').scrollIntoView({behavior: 'smooth'})
+  );
+
+  // Init language
+  setLang(currentLang);
+});
 </script>
 
 </body>
