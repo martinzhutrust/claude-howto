@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huaye Zhixian Technology – Optical Fiber & Cable Supplier | 华羿智纤</title>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand:     #0d4fa0;
+      --brand-dk:  #093980;
+      --accent:    #e8821a;
+      --accent-lt: #f5a94a;
+      --light-bg:  #f4f6fa;
+      --border:    #dde2ec;
+      --text:      #1a2236;
+      --sub:       #5a6580;
+      --white:     #ffffff;
+      --radius:    6px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Top-bar ─── */
+    .topbar {
+      background: var(--brand-dk);
+      color: rgba(255,255,255,.85);
+      font-size: 12px;
+      padding: 5px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .topbar a { color: rgba(255,255,255,.85); margin-left: 12px; }
+    .topbar a:hover { color: #fff; }
+
+    /* ─── Header ─── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--brand);
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .logo-block { display: flex; align-items: center; gap: 14px; }
+    .logo-icon {
+      width: 52px; height: 52px;
+      background: var(--brand);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 32px; height: 32px; }
+    .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--brand); letter-spacing: .5px; }
+    .logo-text p  { font-size: 11px; color: var(--sub); margin-top: 1px; }
+
+    nav { display: flex; gap: 0; }
+    nav a {
+      padding: 8px 16px;
+      font-size: 13px; font-weight: 600;
+      color: var(--text);
+      border-bottom: 3px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover, nav a.active { color: var(--brand); border-bottom-color: var(--accent); }
+
+    .header-cta {
+      display: flex; gap: 8px;
+    }
+    .btn {
+      padding: 8px 18px; border-radius: var(--radius);
+      font-size: 13px; font-weight: 600; cursor: pointer; border: none;
+      transition: opacity .2s;
+    }
+    .btn:hover { opacity: .88; }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-outline  { background: transparent; border: 2px solid var(--brand); color: var(--brand); }
+
+    /* ─── Hero Banner ─── */
+    .hero {
+      background: linear-gradient(120deg, #0d4fa0 0%, #1565c0 50%, #0d4fa0 100%);
+      color: var(--white);
+      padding: 60px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; min-height: 340px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; max-width: 560px; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 20px;
+      padding: 4px 14px; font-size: 12px; margin-bottom: 18px;
+      letter-spacing: .5px;
+    }
+    .hero h2 { font-size: 38px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+    .hero h2 span { color: var(--accent-lt); }
+    .hero p  { font-size: 15px; opacity: .9; margin-bottom: 28px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-btns .btn-primary { background: var(--accent); font-size: 14px; padding: 11px 24px; }
+    .hero-btns .btn-ghost {
+      padding: 11px 24px; border-radius: var(--radius); font-size: 14px;
+      font-weight: 600; background: rgba(255,255,255,.1);
+      border: 1.5px solid rgba(255,255,255,.5); color: var(--white); cursor: pointer;
+      transition: background .2s;
+    }
+    .hero-btns .btn-ghost:hover { background: rgba(255,255,255,.2); }
+
+    .hero-visual { position: relative; flex-shrink: 0; }
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      background: rgba(255,255,255,.1); border-radius: 12px;
+      padding: 20px; backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.2);
+      width: 280px;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .num { font-size: 30px; font-weight: 800; color: var(--accent-lt); }
+    .stat-item .lbl { font-size: 11px; opacity: .85; margin-top: 2px; }
+
+    /* ─── Trust Band ─── */
+    .trust-band {
+      background: var(--brand);
+      color: var(--white);
+      padding: 14px 40px;
+      display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+    .trust-item svg { width: 18px; height: 18px; opacity: .9; }
+
+    /* ─── Section Common ─── */
+    section { padding: 56px 40px; }
+    .section-hd { text-align: center; margin-bottom: 40px; }
+    .section-hd h3 { font-size: 26px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+    .section-hd p  { font-size: 14px; color: var(--sub); max-width: 540px; margin: 0 auto; }
+    .divider { width: 50px; height: 4px; background: var(--accent); border-radius: 2px; margin: 10px auto; }
+
+    /* ─── Products ─── */
+    .products { background: var(--light-bg); }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .prod-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(13,79,160,.12); }
+    .prod-img {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px;
+    }
+    .prod-body { padding: 14px 16px 18px; }
+    .prod-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .prod-body p  { font-size: 12px; color: var(--sub); margin-bottom: 10px; line-height: 1.5; }
+    .prod-tag {
+      display: inline-block;
+      background: #e8f0fe; color: var(--brand);
+      border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600;
+    }
+    .prod-cta {
+      display: block; margin-top: 12px;
+      text-align: center; padding: 8px;
+      background: var(--brand); color: var(--white);
+      border-radius: var(--radius); font-size: 12px; font-weight: 600;
+      transition: background .2s;
+    }
+    .prod-cta:hover { background: var(--brand-dk); }
+
+    /* ─── Advantages ─── */
+    .adv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .adv-card {
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 24px;
+      transition: box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .adv-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--brand);
+    }
+    .adv-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+    .adv-icon { font-size: 36px; margin-bottom: 14px; }
+    .adv-card h4 { font-size: 15px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+    .adv-card p  { font-size: 13px; color: var(--sub); line-height: 1.6; }
+
+    /* ─── Markets ─── */
+    .markets { background: var(--light-bg); }
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .market-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 24px 20px; text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .market-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+    .mkt-flag { font-size: 44px; margin-bottom: 10px; }
+    .mkt-name { font-size: 16px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+    .mkt-sub  { font-size: 12px; color: var(--sub); margin-bottom: 10px; }
+    .mkt-badge {
+      display: inline-block;
+      padding: 3px 10px; border-radius: 12px;
+      font-size: 11px; font-weight: 700;
+    }
+    .hot  { background: #fff0e6; color: #c0580d; }
+    .open { background: #e8f5e9; color: #2e7d32; }
+
+    /* ─── Certifications ─── */
+    .cert-row {
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+    }
+    .cert-pill {
+      border: 1px solid var(--border);
+      border-radius: 30px; padding: 10px 24px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600; background: var(--white);
+    }
+    .cert-pill .icon { font-size: 22px; }
+
+    /* ─── Process ─── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0;
+      counter-reset: step;
+    }
+    .step {
+      text-align: center; padding: 24px 16px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -6px; top: 28px;
+      font-size: 20px; color: var(--accent);
+    }
+    .step-num {
+      width: 42px; height: 42px;
+      background: var(--brand); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; margin: 0 auto 12px;
+    }
+    .step h4 { font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 6px; }
+    .step p  { font-size: 12px; color: var(--sub); }
+
+    /* ─── Contact ─── */
+    .contact { background: var(--brand); color: var(--white); }
+    .contact .section-hd h3 { color: var(--white); }
+    .contact .section-hd p  { color: rgba(255,255,255,.8); }
+    .contact .divider { background: var(--accent-lt); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .contact-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--accent-lt); }
+    .contact-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; font-size: 14px; }
+    .contact-row .ci { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .contact-form { display: flex; flex-direction: column; gap: 12px; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%; padding: 10px 14px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.1); color: var(--white);
+      font-size: 13px; font-family: inherit;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,.5); }
+    .contact-form textarea { resize: vertical; min-height: 90px; }
+    .contact-form .btn-primary { background: var(--accent); border: none; font-size: 14px; padding: 11px; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #0a1628; color: rgba(255,255,255,.6);
+      padding: 30px 40px; font-size: 12px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+    }
+    footer a { color: rgba(255,255,255,.7); margin-left: 14px; }
+    footer a:hover { color: #fff; }
+    .footer-logo { color: var(--white); font-weight: 700; font-size: 14px; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; padding: 40px 20px; }
+      .hero h2 { font-size: 26px; }
+      .hero-stats { width: 100%; }
+      .trust-band { gap: 20px; padding: 14px 20px; }
+      section { padding: 40px 20px; }
+      header { flex-wrap: wrap; gap: 10px; }
+      nav { order: 3; width: 100%; overflow-x: auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <span>🌐 Supplying Southeast Asia · Philippines · Indonesia · Vietnam · Thailand</span>
+  <div>
+    <a href="#contact">Contact Us</a>
+    <a href="#contact">Get a Quote</a>
+    <a href="mailto:sales@huayezhixian.com">sales@huayezhixian.com</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="logo-block">
+    <div class="logo-icon">
+      <!-- Fiber optic icon -->
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 16 Q 10 8 16 16 Q 22 24 28 16" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M4 12 Q 10 4 16 12 Q 22 20 28 12" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M4 20 Q 10 12 16 20 Q 22 28 28 20" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="4"  cy="16" r="2" fill="#f5a94a"/>
+        <circle cx="28" cy="16" r="2" fill="#f5a94a"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <h1>华羿智纤  Huaye Zhixian</h1>
+      <p>Optical Fiber &amp; Cable Export Specialist · Est. 2020 · Guangdong, China</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#products" class="active">Products</a>
+    <a href="#advantages">About Us</a>
+    <a href="#markets">Markets</a>
+    <a href="#process">How to Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-cta">
+    <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inquiry</button>
+    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">🏭 Factory-Direct Pricing · Southeast Asia Specialist</span>
+    <h2>China's Premium<br/><span>Optical Fiber &amp; Cable</span><br/>for SEA Markets</h2>
+    <p>Bare optical fiber &amp; finished optical cable — direct from China's upstream production base.
+       Competitive FOB pricing, fast lead times, and compliant export to Philippines, Indonesia, Vietnam &amp; Thailand.</p>
+    <div class="hero-btns">
+      <button class="btn-primary btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">📩 Request a Quote</button>
+      <button class="btn-ghost" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products →</button>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="num">5+</div>
+        <div class="lbl">Years in<br/>Fiber Industry</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">10M+</div>
+        <div class="lbl">Fiber km<br/>Delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">4</div>
+        <div class="lbl">Core SEA<br/>Markets</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">48h</div>
+        <div class="lbl">Sample<br/>Lead Time</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Trust Band -->
+<div class="trust-band">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+    Verified Supplier
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    ITU-T G.652D / G.657A Compliant
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+    T/T &amp; L/C Accepted
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    FOB / CIF Available
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M21 6.5l-4-4-1.5 1.5-4-4L2 9.5l1.5 1.5-1.5 1.5 4 4 1.5-1.5 4 4 8.5-8.5-1.5-1.5 1.5-1.5zM8 15.5l-2-2 8.5-8.5 2 2L8 15.5z"/></svg>
+    FCL &amp; LCL Shipping
+  </div>
+</div>
+
+<!-- Products -->
+<section class="products" id="products">
+  <div class="section-hd">
+    <h3>Main Products</h3>
+    <div class="divider"></div>
+    <p>Full range of optical fiber and cable solutions — bare fiber for cable factories, and finished cables for ISPs &amp; EPC contractors.</p>
+  </div>
+
+  <div class="prod-grid">
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#e8f0fe;">🔵</div>
+      <div class="prod-body">
+        <h4>Bare Optical Fiber — G.652D</h4>
+        <p>Single-mode OS2 bare fiber. Low attenuation (≤0.18 dB/km @1550 nm). Ideal for cable factories &amp; secondary processing plants.</p>
+        <span class="prod-tag">fkm / kfkm pricing</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#fff3e0;">🟠</div>
+      <div class="prod-body">
+        <h4>Bare Optical Fiber — G.657A1/A2</h4>
+        <p>Bend-insensitive fiber for FTTH drop lines. Min. bend radius 10 mm (A2). Popular in dense urban deployments.</p>
+        <span class="prod-tag">FTTH ready</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#e8f5e9;">🟢</div>
+      <div class="prod-body">
+        <h4>Outdoor Optical Cable — GYTA</h4>
+        <p>Loose-tube, armored, direct-burial / duct. 4–288 fibers. Standard outdoor backbone cable for ISP &amp; EPC projects.</p>
+        <span class="prod-tag">GYTA / GYTS</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#fce4ec;">🔴</div>
+      <div class="prod-body">
+        <h4>FTTH Drop Cable</h4>
+        <p>G.657A1 single-fiber, 2-fiber, or spider-web designs. Self-supporting &amp; indoor/outdoor variants. Fast-connect ready.</p>
+        <span class="prod-tag">Flat / Round drop</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#f3e5f5;">🟣</div>
+      <div class="prod-body">
+        <h4>Mini All-Dielectric Cable — GYXTW</h4>
+        <p>Compact, lightweight, central loose-tube design. 6–24 fibers. Popular for aerial and duct MDU deployments.</p>
+        <span class="prod-tag">GYXTW / GYFTY</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-img" style="background:#e0f7fa;">🔷</div>
+      <div class="prod-body">
+        <h4>Multi-mode OM3 / OM4 Fiber</h4>
+        <p>50/125 µm laser-optimized fiber for data center interconnects. High bandwidth, low insertion loss.</p>
+        <span class="prod-tag">OM3 / OM4</span>
+        <a href="#contact" class="prod-cta">Inquire Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Advantages -->
+<section id="advantages">
+  <div class="section-hd">
+    <h3>Why Choose 华羿智纤?</h3>
+    <div class="divider"></div>
+    <p>We bring upstream China manufacturing cost advantages directly to Southeast Asian buyers — no middlemen, faster quotes, better margins.</p>
+  </div>
+
+  <div class="adv-grid">
+
+    <div class="adv-card">
+      <div class="adv-icon">🏭</div>
+      <h4>Direct Upstream Access</h4>
+      <p>Stable supply relationships with major Chinese fiber preform and cable manufacturers. We pass the cost advantage straight to you — no extra markup layers.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">💰</div>
+      <h4>Competitive FOB Pricing</h4>
+      <p>Our EXW cost base beats most regional resellers. We offer transparent FOB quotations from Shenzhen, Guangzhou Nansha, or Ningbo — pick your preferred load port.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">⚡</div>
+      <h4>Fast Delivery</h4>
+      <p>Bare fiber: ex-stock or 5–10 day lead time. Finished cable: 15–25 days. Rush orders accommodated. LCL trial shipments welcome for first orders.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">✅</div>
+      <h4>Compliance-Ready Products</h4>
+      <p>Bare fiber carries no mandatory product certification in most SEA markets — the fastest path to import. Finished cable certifications (SDPPI for Indonesia, etc.) available on request.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">🔒</div>
+      <h4>Secure Payment Terms</h4>
+      <p>We accept T/T advance, 30% deposit + balance on B/L copy, and Sight L/C. Transparent terms protect both sides — no surprises.</p>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-icon">🤝</div>
+      <h4>Dedicated SEA Support</h4>
+      <p>English &amp; Chinese speaking export team familiar with Philippines, Indonesia, Vietnam and Thai import procedures. We handle customs docs, CoO, and HS code guidance.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Markets -->
+<section class="markets" id="markets">
+  <div class="section-hd">
+    <h3>Our Core Export Markets</h3>
+    <div class="divider"></div>
+    <p>Southeast Asia is in the middle of a FTTH construction boom — $15B+ committed 2025–2028. We ship to private ISPs, cable factories, and EPC contractors.</p>
+  </div>
+
+  <div class="market-grid">
+
+    <div class="market-card">
+      <div class="mkt-flag">🇵🇭</div>
+      <div class="mkt-name">Philippines</div>
+      <div class="mkt-sub">NFB backbone + PLDT &amp; Converge expansion. Open import market, zero AD duties on Chinese fiber.</div>
+      <span class="mkt-badge hot">🔥 Priority #1</span>
+    </div>
+
+    <div class="market-card">
+      <div class="mkt-flag">🇮🇩</div>
+      <div class="mkt-name">Indonesia</div>
+      <div class="mkt-sub">FTTH &amp; FWA high growth. Private ISP channel open; no mandatory TKDN for private buyers.</div>
+      <span class="mkt-badge hot">🔥 Priority #2</span>
+    </div>
+
+    <div class="market-card">
+      <div class="mkt-flag">🇻🇳</div>
+      <div class="mkt-name">Vietnam</div>
+      <div class="mkt-sub">National backbone rollout at full speed. No anti-dumping on Chinese fiber/cable. Direct export viable.</div>
+      <span class="mkt-badge open">✅ Open Market</span>
+    </div>
+
+    <div class="market-card">
+      <div class="mkt-flag">🇹🇭</div>
+      <div class="mkt-name">Thailand</div>
+      <div class="mkt-sub">Ongoing fiber infrastructure upgrades. CAT Telecom and private ISPs actively sourcing.</div>
+      <span class="mkt-badge open">✅ Open Market</span>
+    </div>
+
+    <div class="market-card">
+      <div class="mkt-flag">🇲🇾</div>
+      <div class="mkt-name">Malaysia</div>
+      <div class="mkt-sub">Jalinan Digital Negara (JENDELA) broadband plan driving steady cable demand.</div>
+      <span class="mkt-badge open">✅ Secondary</span>
+    </div>
+
+    <div class="market-card">
+      <div class="mkt-flag">🇧🇳</div>
+      <div class="mkt-name">Brunei</div>
+      <div class="mkt-sub">Small but high-value market with ongoing fiber upgrade projects for government &amp; enterprise.</div>
+      <span class="mkt-badge open">✅ Secondary</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certs">
+  <div class="section-hd">
+    <h3>Standards &amp; Quality Assurance</h3>
+    <div class="divider"></div>
+    <p>All products are manufactured and tested against international telecom standards. Factory inspection reports provided with every shipment.</p>
+  </div>
+
+  <div class="cert-row">
+    <div class="cert-pill"><span class="icon">📋</span> ITU-T G.652D</div>
+    <div class="cert-pill"><span class="icon">📋</span> ITU-T G.657A1 / A2</div>
+    <div class="cert-pill"><span class="icon">📋</span> IEC 60793 / 60794</div>
+    <div class="cert-pill"><span class="icon">📋</span> YD/T 标准</div>
+    <div class="cert-pill"><span class="icon">🏆</span> ISO 9001:2015</div>
+    <div class="cert-pill"><span class="icon">✅</span> Factory QC Report w/ every order</div>
+    <div class="cert-pill"><span class="icon">📦</span> CoO &amp; Export Documentation</div>
+  </div>
+</section>
+
+<!-- Order Process -->
+<section id="process" style="background: var(--light-bg);">
+  <div class="section-hd">
+    <h3>How to Order — 4 Simple Steps</h3>
+    <div class="divider"></div>
+    <p>From inquiry to shipment — our streamlined process gets your first order out in weeks, not months.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Send Inquiry</h4>
+      <p>Tell us product spec, quantity, destination port &amp; preferred Incoterms.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Receive Quote</h4>
+      <p>We reply within 24 h with itemized FOB / CIF price, lead time &amp; spec sheet.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Confirm &amp; Pay</h4>
+      <p>Sign PI, pay deposit (T/T 30% or sight L/C). Production starts immediately.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Ship &amp; Deliver</h4>
+      <p>We handle booking, customs, B/L &amp; full export docs. You receive goods on time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="section-hd">
+    <h3>Get in Touch</h3>
+    <div class="divider"></div>
+    <p>Ready to source? Send us your specs and we'll reply within 24 hours with a competitive quote.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <h4>Contact Details</h4>
+
+      <div class="contact-row">
+        <span class="ci">🏢</span>
+        <div>
+          <strong>华羿智纤科技有限公司</strong><br/>
+          Huaye Zhixian Technology Co., Ltd.<br/>
+          Guangdong, China
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <span class="ci">📧</span>
+        <div>sales@huayezhixian.com<br/><small style="opacity:.7">Export inquiries &amp; RFQ</small></div>
+      </div>
+
+      <div class="contact-row">
+        <span class="ci">💬</span>
+        <div>WhatsApp / WeChat available<br/><small style="opacity:.7">Ask for rep contact on first inquiry</small></div>
+      </div>
+
+      <div class="contact-row">
+        <span class="ci">🕐</span>
+        <div>Mon–Fri  09:00–18:00 CST (UTC+8)</div>
+      </div>
+
+      <div class="contact-row">
+        <span class="ci">🚢</span>
+        <div>Main Load Ports:<br/>Shenzhen (Yantian/Shekou) · Guangzhou Nansha · Ningbo</div>
+      </div>
+    </div>
+
+    <div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text"  placeholder="Your Name *" required />
+        <input type="email" placeholder="Email Address *" required />
+        <input type="text"  placeholder="Company Name" />
+        <select>
+          <option value="" disabled selected>Select Destination Country</option>
+          <option>Philippines</option>
+          <option>Indonesia</option>
+          <option>Vietnam</option>
+          <option>Thailand</option>
+          <option>Malaysia</option>
+          <option>Brunei</option>
+          <option>Other</option>
+        </select>
+        <select>
+          <option value="" disabled selected>Product of Interest</option>
+          <option>Bare Optical Fiber (G.652D)</option>
+          <option>Bare Optical Fiber (G.657A1/A2)</option>
+          <option>Outdoor Cable GYTA / GYTS</option>
+          <option>FTTH Drop Cable</option>
+          <option>Mini Cable GYXTW</option>
+          <option>Multi-mode Fiber OM3/OM4</option>
+          <option>Mixed / Multiple Products</option>
+        </select>
+        <textarea placeholder="Specifications &amp; Quantity (e.g. G.652D bare fiber, 500 kfkm, FOB Shenzhen) *" required></textarea>
+        <button type="submit" class="btn btn-primary">📩 Send Inquiry</button>
+        <p style="font-size:11px;opacity:.6;text-align:center;">We reply within 24 hours · No spam · Strict confidentiality</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <span class="footer-logo">华羿智纤  Huaye Zhixian Technology</span><br/>
+    <span style="margin-top:4px;display:block;">© 2026 Huaye Zhixian Technology Co., Ltd. · Guangdong, China · All rights reserved.</span>
+  </div>
+  <div>
+    <a href="#products">Products</a>
+    <a href="#advantages">About</a>
+    <a href="#markets">Markets</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✅ Inquiry Sent! We\'ll reply within 24h.';
+    btn.style.background = '#2e7d32';
+    btn.disabled = true;
+  }
+
+  // Highlight active nav on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
